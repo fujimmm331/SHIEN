@@ -1,3 +1,94 @@
-// Place all the styles related to the teams controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main_pic{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.picture{
+  width: 100%;
+  height: 100%;
+}
+
+.main_str{
+  padding-bottom: 0px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: #33cc00;
+}
+
+.about_shien, .features{
+  text-align: center;
+  font-size: x-large;
+  margin-bottom: 100px;
+}
+
+.title{
+  border-bottom: solid 3px greenyellow;
+}
+
+.about_shien_text{
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.features{
+  
+}
+
+.feature{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.text_side{
+  background-color: greenyellow;
+  height: 100%;
+  width: 40%;
+}
+
+.image_side{
+  height: 100%;
+  width: 40%;
+  border: solid 1px silver;
+}
+
+.image_title{
+  
+}
+
+.image_text{
+
+}
+
+.f_picture{
+  width: 60%;
+  height: 100%;
+}
+
+.go_shien{
+  background-color: #006666 ;
+  color: #ffffff;
+  width: 60%;
+  height: 250px;
+  padding: 20px;
+  border-radius:10px;
+  text-align: center;
+  font-size: x-large;
+  margin: 0px auto;
+  margin-bottom: 100px;
+}
+
+.bottom_sign_in_btn{
+  background-color: #ff9933;
+  color: #ffffff;
+  padding: 20px;
+  border-radius:30px;
+  transition: all .3s;
+}
+
+.bottom_sign_in_btn:hover{
+  background-color: #ffb770;
+}
