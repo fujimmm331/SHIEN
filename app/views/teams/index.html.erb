@@ -1,0 +1,63 @@
+<%# トップの写真 %>
+<div class="main_pic">
+  <%= image_tag "main.jpg", alt: "Main pic", class:"picture"%>
+  <H1 class="main_str">あなたの活動、支援します</H1>
+</div>
+<%# /トップの写真 %>
+
+<%# SHIENの紹介 %>
+<%# about shien %>
+<div class="about_shien">
+  <H1><span class="title">About SHIEN</span></H1>
+    <p class="about_shien_text">SHIENは営業活動を支援するツールです。<br>雑務を気にせず、<br>商談のチャンスを掴めるよう<br>支援します。</p>
+</div>
+<%#/ about shien %>
+
+<%# features %>
+<div class="features">
+  <H1><span class="title">Features</span></H1>
+  <p class="about_shien_text">SHIENができることを紹介します。</p>
+
+  <div class="feature">
+    <div class="image_side">
+      <H2>1、 案件管理</h2>
+      <p>案件に関する情報を管理できます。<br>案件名や、住所、先方の名前など。<br>先方の趣味も残しておくこともできます。</p>
+    </div>
+    <div class="text_side"><%= image_tag "feature1.png", alt: "Main pic", class:"f_picture"%></div>
+  </div>
+  <div class="feature">
+    <div class="text_side"><%= image_tag "feature2.png", alt: "Main pic", class:"f_picture"%></div>
+    <div class="image_side">
+      <H2 ><span class="image_title">2、 今日やること、明日やることを通知</span></h2>
+      <p class="image_text">これからは、SHIENがやるべきタスクを通知します。<br>「あの書類今日までだった」<br>なんてことはお別れです。</p>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="image_side">
+      <H2>3、 商談進捗管理</h2>
+      <p>お客様からすれば、あなたは一人です。<br>あなたからすれば、お客様が沢山です。<br>お客様に提案したこと、<br>お客様とのお約束、<br>商談の進捗を管理します。</p>
+    </div>
+    <div class="text_side"><%= image_tag "feature3.png", alt: "Main pic", class:"f_picture"%></div>
+  </div>
+  <div class="feature">
+    <div class="text_side"><%= image_tag "feature4.png", alt: "Main pic", class:"f_picture"%></div>
+    <div class="image_side">
+      <H2>4、 コンタクト履歴</h2>
+      <p>お客様から問い合わせを受ける人は、あなただけではありません。<br>SHIENを使用しているメンバーなら、<br>誰でも問い合わせ内容を残せます。</p>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="image_side">
+      <H2>5、 スケジュール共有</h2>
+      <p>メンバー全員のスケジュールを共有できます。</p>
+    </div>
+    <div class="text_side"><%= image_tag "feature5.png", alt: "Main pic", class:"f_picture"%></div>
+  </div>
+</div>
+<%#/ features %>
+<%#/ SHIENの紹介 %>
+
+<div class="go_shien">
+    <H1><span class="title">こちらからSHIENを体験できます</span></H2>
+    <div><%= link_to "体験する（ゲストログイン）", "#", class:"bottom_sign_in_btn"%></div>
+</div>

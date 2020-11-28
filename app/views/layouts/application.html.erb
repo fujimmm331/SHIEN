@@ -4,12 +4,20 @@
     <title>SHIEN</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href = "https://unpkg.com/sanitize.css" rel = " stylesheet " type="text/css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="menu_var">
+      <H1><%= link_to "SHIEN", root_path, class:"shien_btn"%></H1>
+      <div class="right_side">
+        <div><%= link_to "簡単ログイン", "#", class:["signin_btn", "easy_signin_btn"]%></div>
+        <div><%= link_to "ログイン", "#", class:"signin_btn"%></div>
+        <div><%= link_to "新規登録", "#", class:"signin_btn"%></div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
