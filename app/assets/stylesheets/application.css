@@ -17,3 +17,41 @@
  a{
    text-decoration: none;
  }
+
+ .menu_var{
+   height: 60px;
+   background-color: #006666 ;
+   color: #ffffff;
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .right_side{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+ }
+
+ .shien_btn{
+   color: #ffffff;
+ }
+
+ .easy_signin_btn{
+   margin-right: 10px;
+   border-radius: 10px;
+   background-color: #ff9933;
+   transition: all .3s;
+ }
+
+ .easy_signin_btn:hover{
+  background-color: #ffb770;
+}
+
+ .signin_btn{
+   margin-right: 10px;
+   border: solid 1px #ffffff;
+   padding: 15px;
+   color: #ffffff;
+ }
