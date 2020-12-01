@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= render 'share/sign_in.html.erb'%>
+  <%= render 'share/after_sign_in.html.erb'%>
 <% else %>
-  <%= render 'share/sign_out.html.erb'%>
+  <%= render 'share/before_sign_in.html.erb'%>
 <% end %>
