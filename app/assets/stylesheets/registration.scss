@@ -5,8 +5,8 @@
 }
 
 .field_with_errors{
-  color: #e95464;
-
+  color: red;
+  font-weight: 600;
 }
 
 .contents{
@@ -33,7 +33,7 @@
 }
 
 .field{
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -49,6 +49,11 @@
   background-color: tomato;
   color: #ffffff;
   margin-right: 5px;
+}
+
+.announce{
+  font-size: 12px ;
+  color: #9f9f9f;
 }
 
 .form{
