@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: SHIEN_production
-  username: SHIEN
+  username: root
   password: <%= ENV['SHIEN_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
