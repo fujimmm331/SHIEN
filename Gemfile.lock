@@ -61,6 +61,7 @@ GEM
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
@@ -100,6 +101,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    ed25519 (1.2.4)
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -272,6 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt_pbkdf
   bootsnap (>= 1.4.2)
   byebug
   capistrano
@@ -281,6 +284,7 @@ DEPENDENCIES
   capistrano3-unicorn
   capybara (>= 2.15)
   devise
+  ed25519
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
