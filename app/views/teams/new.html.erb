@@ -1,0 +1,24 @@
+<div class="main_contents">
+  <h2 class="team_title"><span class="title">チームの作成</span></h2>
+  <div>
+    <div class="team_forms">
+      <h2>チーム名を入力し、チームを作成しましょう。</h2>
+      
+      <%= form_with model:@team, local: true do |f|%>
+      <div>
+        <%= f.label :name, "チーム名" %>
+      </div>
+      <div>
+        <%= f.text_field :name, placeholder:"例）営業1部、〇〇支店など", class:"team_form"%>
+        <%= f.submit "チームを作成", class:"team_submit_btn"%>
+      </div>
+
+      <div class="column">
+        <div>コラム:</div>
+        <div>SH1ENではチームごとに案件が管理されます。</div>
+        <div>チーム名は課や、拠点名で作成する方が多いです。</div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

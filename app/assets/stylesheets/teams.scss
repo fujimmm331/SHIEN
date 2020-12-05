@@ -45,7 +45,7 @@
   width: 40%;
 }
 
-.image_side{
+.image_side, .team_forms{
   height: 100%;
   width: 40%;
   border: solid 1px silver;
@@ -80,3 +80,47 @@
 .bottom_sign_in_btn:hover{
   background-color: #ffb770;
 }
+
+
+.main_contents{
+  height: calc( 100vh - 60px);
+  width: 100vw;
+}
+
+.team_title{
+  text-align: center;
+}
+
+.team_forms{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+
+.team_form{
+  width: 300px;
+  height: 30px;
+  font-size: 16px;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
+.team_submit_btn{
+  height: 30px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+}
+
+.column{
+  font-size: smaller;
+  margin-top: 30px;
+}
+
+
+

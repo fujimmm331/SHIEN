@@ -11,6 +11,8 @@ class User < ApplicationRecord
   password_vali = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates :password, format: {with: password_vali, message: 'should include English and numbers,and can be used only in half-width'}
 
+
+  # 簡単ログイン用のユーザー情報
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = "ゲストユーザー"
