@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :team_users
+  has_many :team_matters
   has_many :teams, through: :team_users
+  has_many :matters, through: :team_matters
   
   validates :name, presence: true
 
