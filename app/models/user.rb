@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :team_matters
   has_many :teams, through: :team_users
   has_many :matters, through: :team_matters
-  
+
   validates :name, presence: true
 
   password_vali = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
