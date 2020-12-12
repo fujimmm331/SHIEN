@@ -4,16 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :team_users
   has_many :team_matters
-  has_many :teams, through: :team_users
   has_many :matters, through: :team_matters
+  belongs_to :team
 
+  PASSWORD_VALI = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates :password, format: {with: PASSWORD_VALI, message: 'should include English and numbers,and can be used only in half-width'}
   validates :name, presence: true
-
-  password_vali = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates :password, format: {with: password_vali, message: 'should include English and numbers,and can be used only in half-width'}
-
 
   # 簡単ログイン用のユーザー情報
   def self.guest
