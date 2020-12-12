@@ -123,4 +123,76 @@
 }
 
 
+.team_index{
+  display: flex;
+  background-color: #ffffff;
+}
 
+.team_menu_bar{
+  background-color: #f1f1f1;
+  width: 200px;
+  height: 100vh;
+}
+
+.menu_title{
+  text-align: center;
+}
+
+.menu_title_str{
+  font-size: larger;
+  border-bottom: black solid 2px;
+}
+
+.team_menu{
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.notice_title{
+  text-align: center;
+}
+
+.notice_contents{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.team_main_contents{
+  width: 100%;
+}
+
+.team_main_content{
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.search_forms_upper, .todo_lists{
+  display: flex;
+}
+
+.search_form{
+  margin-right: 20px;
+}
+
+.search_submit_btn{
+  height: 40px;
+  width: 180px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+}
+
+.todo_list{
+  margin-left: 20px;
+}
+
+.todo_day{
+  font-weight: 600;
+}
