@@ -64,6 +64,11 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include "Password should include English and numbers,and can be used only in half-width"
       end
 
+      it 'team_idが空では保存できない' do
+        @user.team = nil
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Team must exist"
+      end
     end
   end
 end
