@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   }
   root to: "teams#index"
 
+  resources :teams, only: [:index, :new, :create]
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end

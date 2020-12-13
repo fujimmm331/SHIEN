@@ -41,6 +41,14 @@
       <%= f.password_field :password_confirmation, class:"form", autocomplete: "new-password" ,placeholder:"先ほどのパスワードを入力してください。"%>
     </div>
 
+    <div class="field">
+      <div class="colmun">
+        <div><span class="must">必須</span></div>
+        <%= f.label :password_confirmation, "所属" %>
+      </div>
+      <%= f.collection_select :team_id, Team.all, :id, :name, {prompt: "チームを選択"},{class: "form"}%>
+    </div>
+
     <div class="actions">
       <%= f.submit "登録する", class:"submit_btn"%>
     </div>

@@ -45,7 +45,7 @@
   width: 40%;
 }
 
-.image_side{
+.image_side, .team_forms{
   height: 100%;
   width: 40%;
   border: solid 1px silver;
@@ -79,4 +79,120 @@
 
 .bottom_sign_in_btn:hover{
   background-color: #ffb770;
+}
+
+
+.main_contents{
+  height: calc( 100vh - 60px);
+  width: 100vw;
+}
+
+.team_title{
+  text-align: center;
+}
+
+.team_forms{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+
+.team_form{
+  width: 300px;
+  height: 30px;
+  font-size: 16px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.team_submit_btn{
+  height: 30px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+}
+
+.column{
+  font-size: smaller;
+}
+
+
+.team_index{
+  display: flex;
+  background-color: #ffffff;
+}
+
+.team_menu_bar{
+  background-color: #f1f1f1;
+  width: 200px;
+  height: 100vh;
+}
+
+.menu_title{
+  text-align: center;
+}
+
+.menu_title_str{
+  font-size: larger;
+  border-bottom: black solid 2px;
+}
+
+.team_menu{
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.notice_title{
+  text-align: center;
+}
+
+.notice_contents{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.team_main_contents{
+  width: 100%;
+}
+
+.team_main_content{
+  margin-left: 20px;
+  margin-bottom: 60px;
+}
+
+.search_forms_upper, .todo_lists{
+  display: flex;
+}
+
+.search_form{
+  margin-right: 20px;
+}
+
+.search_submit_btn{
+  height: 40px;
+  width: 180px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+}
+
+.todo_list{
+  margin-left: 20px;
+}
+
+.todo_day{
+  font-weight: 600;
 }
