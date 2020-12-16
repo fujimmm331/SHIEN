@@ -1,1 +1,21 @@
-hello world
+<div class="matter_contents">
+  <%= render 'share/menu_bar.html.erb'%>
+  <div class="matter_side">
+    <%= render 'share/search_matter.html.erb'%>
+    <h1><span class="title">案件一覧</span></h1>
+    <% @matters.each do |matter| %>
+    <div class="matter_info">
+      <div><%= matter.name%></div>
+      <div><%= matter.sales_person%></div>
+      <div><%= matter.phone_number%></div>
+      <div><%= matter.cell_phone_number%></div>
+      <div><%= matter.postal_code%></div>
+      <div class="matter_contents">
+        <div><%= matter.municipality%></div>
+        <div><%= matter.address%></div>
+        <div><%= matter.building%></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

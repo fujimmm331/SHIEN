@@ -1,0 +1,26 @@
+<%= form_with url:"#", local: true do |f|%>
+    <div class="team_main_content">
+      <h1><span class="title">案件を検索する</span></h1>
+      <div class="search_forms_upper">
+        <div>
+          <div><%= f.label :hoge,"電話番号" %></div>
+          <div><%= f.text_field :hoge, class:["team_form", "search_form"], placeholder:"ハイフン不要"%></div>
+        </div>
+        <div>
+          <div><%= f.label :hogehoge,"お客様名" %></div>
+          <div><%= f.text_field :hogehoge, class:["team_form", "search_form"], placeholder:"カタカナで入力可"%></div>
+        </div>
+      </div>
+      <div class="search_forms_upper">
+        <div>
+          <div><%= f.label :fuga,"案件名" %></div>
+          <div><%= f.text_field :fuga, class:["team_form", "search_form"], placeholder:"カタカナで入力可"%></div>
+        </div>
+        <div>
+          <div><%= f.label :fugafuga,"担当者" %></div>
+          <div><%= f.text_field :fugafuga, class:["team_form", "search_form"], placeholder:"カタカナで入力可"%></div>
+        </div>
+      </div>
+      <%= f.submit "検索する", class:["team_submit_btn", "search_submit_btn"]%>
+    </div>
+<% end %>

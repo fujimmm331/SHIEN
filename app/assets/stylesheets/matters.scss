@@ -1,3 +1,14 @@
-// Place all the styles related to the matters controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.matter_contents{
+  display: flex;
+}
+
+.matter_side{
+  width: calc(100vw - 200px);
+}
+
+.matter_info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 700;
+}
