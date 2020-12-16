@@ -4,8 +4,8 @@ class CreateMatters < ActiveRecord::Migration[6.0]
       t.string :name,                null: false
       t.string :sales_person,        null: false
       t.string :kana_sales_person,   null: false
-      t.integer :phone_number,       null: false
-      t.integer :cell_phone_number,  null: false
+      t.string :phone_number,        null: false
+      t.string :cell_phone_number,   null: false
       t.string :postal_code,         null: false
       t.string :municipality,        null: false
       t.string :address,             null: false
