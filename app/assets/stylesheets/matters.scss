@@ -8,6 +8,8 @@
 
 .matter_side{
   width: calc(100vw - 200px);
+  height: 100vh;
+  overflow: scroll ;
 }
 
 .matter_info{
@@ -37,4 +39,37 @@
 
 .new_matter{
   text-align: center;
+}
+
+.new_form_area{
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new_form_input{
+  width: 500px;
+  height: 30px;
+  font-size: 16px;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
+.with_announce{
+  margin-bottom: 10px;
+}
+
+.new_matter_btn{
+  height: 40px;
+  width: 500px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
