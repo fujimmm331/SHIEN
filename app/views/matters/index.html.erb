@@ -16,7 +16,7 @@
           </tr>
           <% @matters.each do |matter| %>
           <tr class="table_records">
-            <td><%= link_to matter.name, "#", class:"table_record"%></td>
+            <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
             <td><%= matter.sales_person%></td>
             <td><%= matter.phone_number%></td>
             <td><%= matter.cell_phone_number%></td>
