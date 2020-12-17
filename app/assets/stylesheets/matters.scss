@@ -1,3 +1,8 @@
+.matter_main_contents{
+  margin-left: 20px;
+  // margin-bottom: 60px;
+}
+
 .matter_contents{
   display: flex;
 }
@@ -8,7 +13,26 @@
 
 .matter_info{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   font-weight: 700;
 }
+
+.table_title{
+  border-bottom: 1px solid gray;
+}
+
+.matter_table_record{
+  margin-left: 20px;
+  width: 80%;
+  font-size: larger; 
+}
+
+.table_records{
+  border-bottom: 1px solid silver;
+}
+
+.table_record{
+  display: block;
+}
+
