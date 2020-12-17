@@ -9,7 +9,7 @@ class CreateMatters < ActiveRecord::Migration[6.0]
       t.string :postal_code,         null: false
       t.string :municipality,        null: false
       t.string :address,             null: false
-      t.string :building,            null: false
+      t.string :building
       t.references :user,            foreign_key: true
       t.references :team,            foreign_key: true
       t.timestamps
