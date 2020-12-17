@@ -5,24 +5,27 @@
     <div class="matter_main_contents">
       <h1><span class="title">案件一覧</span></h1>
       <table class="matter_table_record">
-        <tr class="table_title">
-          <th>案件名</th>
-          <th>先方の担当者</th>
-          <th>電話番号</th>
-          <th>携帯電話番号</th>
-          <th>郵便番号</th>
-          <th>住所</th>
-        </tr>
-
-        <% @matters.each do |matter| %>
-        <tr class="table_records">
-          <td><%= link_to matter.name, "#", class:"table_record"%></td>
-          <td><%= matter.sales_person%></td>
-          <td><%= matter.phone_number%></td>
-          <td><%= matter.cell_phone_number%></td>
-          <td><%= matter.postal_code%></td>
-          <td><%= matter.municipality%><%= matter.address%> <%= matter.building%></td>
-        </tr>
+        <% if @matters != []%>
+          <tr class="table_title">
+            <th>案件名</th>
+            <th>先方の担当者</th>
+            <th>電話番号</th>
+            <th>携帯電話番号</th>
+            <th>郵便番号</th>
+            <th>住所</th>
+          </tr>
+          <% @matters.each do |matter| %>
+          <tr class="table_records">
+            <td><%= link_to matter.name, "#", class:"table_record"%></td>
+            <td><%= matter.sales_person%></td>
+            <td><%= matter.phone_number%></td>
+            <td><%= matter.cell_phone_number%></td>
+            <td><%= matter.postal_code%></td>
+            <td><%= matter.municipality%><%= matter.address%> <%= matter.building%></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <div>案件はありません</div>
         <% end %>
       </table>
     </div>
