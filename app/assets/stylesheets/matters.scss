@@ -2,8 +2,12 @@
   margin-left: 20px;
 }
 
-.matter_contents{
+.matter_contents, .matter_btn_area{
   display: flex;
+}
+
+.matter_btn_area{
+  justify-content: space-between;
 }
 
 .matter_side{
@@ -72,4 +76,38 @@
   border: solid 1px #ff9930;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+.matter_title{
+  font-size: 12px;
+}
+
+.matter_text{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.matter_edit_btn{
+  padding: 3px;
+  display: block;
+  width: 150px;
+  font-size: 16px;
+  background-color:#ff9933;
+  border: solid 1px #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: solid 1px #ff9930;
+  margin-top: 10px;
+  
+}
+
+.matter_contactlog_btn{
+  background-color: #00cc33;
+  border: solid 1px #33cc66;
+}
+
+.matter_destroy_btn{
+  background-color: tomato;
 }
