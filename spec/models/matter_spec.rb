@@ -9,7 +9,12 @@ RSpec.describe Matter, type: :model do
   describe '案件新規作成' do
 
     context '新規作成できる時' do
-      it '全てのカラムが入っていれば登録できる' do
+      it '全てのカラムが入っていれば保存できる' do
+        expect(@matter).to be_valid
+      end
+
+      it '建物名が空欄でも保存できる' do
+        @matter.building = ""
         expect(@matter).to be_valid
       end
     end
