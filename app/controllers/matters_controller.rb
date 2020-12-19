@@ -13,7 +13,7 @@ class MattersController < ApplicationController
     @matter = Matter.new(matter_params)
     if @matter.valid?
       @matter.save
-      redirect_to root_path
+      redirect_to matter_path(@matter.id)
     else
       render :new
     end
