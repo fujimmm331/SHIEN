@@ -1,6 +1,6 @@
 class MattersController < ApplicationController
   before_action :sign_in_check
-  before_action :find_matter, only: [:show, :edit, :update]
+  before_action :find_matter, only: [:show, :edit, :update, :destroy]
   
   def index
     @matters = Matter.all.order(id: "DESC")
@@ -33,6 +33,11 @@ class MattersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @matter.destroy
+    redirect_to root_path
   end
 
   private

@@ -31,7 +31,7 @@
         <div class="matter_btn_area">
           <%= link_to "コンタクト履歴", "#", class:["matter_edit_btn","matter_contactlog_btn"] %>
           <%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %>
-          <%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"]%>
+          <%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data: {confirm: "削除しますか？"}%>
         </div>
       </div>
     </div>
