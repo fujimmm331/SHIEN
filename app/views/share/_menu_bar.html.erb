@@ -1,0 +1,10 @@
+<div class="team_menu_bar">
+    <h4 class="menu_title"><span class="menu_title_str">Menu</span></h4>
+    <%= link_to "通知", "#", class:"team_menu"%>
+    <%= link_to "案件一覧", matters_path, class:"team_menu"%>
+    <%= link_to "新規案件作成", new_matter_path, class:"team_menu"%>
+    <%= link_to "商談中", "#", class:"team_menu"%>
+    <%= link_to "ToDoリスト", "#", class:"team_menu"%>
+    <%= link_to "コンタクト履歴", "#", class:"team_menu"%>
+    <%= link_to "チーム作成", new_team_path, class:"team_menu"%>  <%# 後に権限持っている人のみ、作成できる様にする %>
+</div>

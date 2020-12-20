@@ -1,0 +1,39 @@
+<div class="matter_contents">
+  <%= render 'share/menu_bar.html.erb'%>
+  <div class="matter_side">
+    <div class="new_form_area">
+      <h1 class="new_matter"><span class="title"><%= @matter.name%></span></h1>
+
+        <div class="field">
+          <div class="matter_title">先方のご担当者：</div>
+          <span class="matter_text"><%= @matter.sales_person%> / <%= @matter.kana_sales_person%> 様</span>
+        </div>
+
+        <div class="field">
+          <div class="matter_title">電話番号：</div>
+          <span class="matter_text"><%= @matter.phone_number%></span>
+          <div class="matter_title">携帯電話：</div>
+          <span class="matter_text"><%= @matter.cell_phone_number%></span>
+        </div>
+
+        <div class="field">
+          <div class="matter_title">住所：</div>
+          <span class="matter_text"><%= @matter.postal_code%></span>
+          <div><span class="matter_text"><%= @matter.municipality%><%= @matter.address%><%= @matter.building%></span></div>
+        </div>
+
+        <div class="field">
+          <div>担当者：</div>
+          <%= @matter.user.team.name%><br>
+          <%= @matter.user.name%>
+        </div>
+
+        <div class="matter_btn_area">
+          <%= link_to "コンタクト履歴", "#", class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
+          <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

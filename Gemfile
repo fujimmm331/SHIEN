@@ -41,6 +41,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'gimei'
 end
 
 group :development do
@@ -64,6 +65,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'devise'
+gem 'data-confirm-modal'
 
 group :production, :staging do
   gem 'unicorn'
