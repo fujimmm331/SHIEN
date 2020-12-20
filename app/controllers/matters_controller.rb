@@ -1,5 +1,5 @@
 class MattersController < ApplicationController
-  before_action :sign_in_check
+  before_action :authenticate_user!
   before_action :find_matter, only: [:show, :edit, :update, :destroy]
   
   def index
