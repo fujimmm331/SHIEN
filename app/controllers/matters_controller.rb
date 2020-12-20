@@ -1,6 +1,7 @@
 class MattersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_matter, only: [:show, :edit, :update, :destroy]
+  before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
     @matters = Matter.all.order(id: "DESC")
@@ -45,9 +46,9 @@ class MattersController < ApplicationController
     params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)
   end
 
-  def sign_in_check
-    unless user_signed_in?
-      redirect_to root_path
+  def user_check
+    if current_user.id != @matter.user.id
+      redirect_to matter_path(@matter.id)
     end
   end
 
