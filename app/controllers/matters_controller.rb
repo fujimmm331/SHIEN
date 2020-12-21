@@ -28,8 +28,7 @@ class MattersController < ApplicationController
   end
 
   def update
-    if @matter.valid?
-      @matter.update(matter_params)
+    if @matter.update(matter_params)
       redirect_to matter_path(@matter.id)
     else
       render :edit
