@@ -66,6 +66,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'devise'
 gem 'data-confirm-modal'
+gem 'rails-i18n'
 
 group :production, :staging do
   gem 'unicorn'
