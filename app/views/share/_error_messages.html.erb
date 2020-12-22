@@ -1,5 +1,8 @@
 <% if model.errors.any? %>
+<% error_messages = model.errors.full_messages%>
+
 <div class="alert alert-danger" role="alert">
+  <h4><%= error_messages.count %>件のエラーがあります。</h4>
   <ul>
     <% model.errors.full_messages.each do |message| %>
     <li><%= message %></li>
