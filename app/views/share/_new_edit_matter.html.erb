@@ -5,7 +5,7 @@
     <div>
       <h1 class="new_matter"><span class="title">新規案件作成</span></h1>
       <h4>各項目を入力し、新規案件を作成しましょう。</h4>
-      
+      <%= render 'share/error_messages', model: f.object %>
     
         <div class="field">
           <div class="colmun">
@@ -44,18 +44,19 @@
         <div class="with_announce">
           <div class="colmun">
             <div><span class="must">必須</span></div>
-            <%= f.label :cell_phone_number, "携帯電話" %>
+            <%= f.label :cell_phone_number, "携帯電話番号" %>
           </div>
           <%= f.text_field :cell_phone_number, class:"new_form_input", autofocus: true, placeholder:"例）09011113333" %>
           <div><span class="announce">※ハイフン不要です。</span></div>
         </div>
 
-        <div class="field">
+        <div class="with_announce">
           <div class="colmun">
             <div><span class="must">必須</span></div>
             <%= f.label :postal_code, "郵便番号" %>
           </div>
-          <%= f.text_field :postal_code, class:"new_form_input", autofocus: true, placeholder:"例）123-4567" %>
+          <%= f.text_field :postal_code, class:"new_form_input", autofocus: true, placeholder:"例）1001234" %>
+          <div><span class="announce">※ハイフン不要です。</span></div>
         </div>
 
         <div class="field">

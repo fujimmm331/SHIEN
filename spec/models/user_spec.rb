@@ -17,13 +17,13 @@ RSpec.describe User, type: :model do
       it '名前が空では保存できない' do
         @user.name = ""
         @user.valid?
-        expect(@user.errors.full_messages).to include "Name can't be blank"
+        expect(@user.errors.full_messages).to include "氏名を入力してください"
       end
 
       it 'emailが空では保存できない' do
         @user.email = ""
         @user.valid?
-        expect(@user.errors.full_messages).to include "Email can't be blank"
+        expect(@user.errors.full_messages).to include "Eメールを入力してください"
       end
 
       it 'emailは一意性である' do
@@ -31,43 +31,43 @@ RSpec.describe User, type: :model do
         other_user = FactoryBot.build(:user)
         other_user.email = @user.email
         other_user.valid?
-        expect(other_user.errors.full_messages).to include "Email has already been taken"
+        expect(other_user.errors.full_messages).to include "Eメールはすでに存在します"
       end
 
       it 'emailは＠がなければ保存できない' do
         @user.email = "aaaaaaa"
         @user.valid?
-        expect(@user.errors.full_messages).to include "Email is invalid"
+        expect(@user.errors.full_messages).to include "Eメールは不正な値です"
       end
 
       it 'passwordが空では保存できない' do
         @user.password = ""
         @user.valid?
-        expect(@user.errors.full_messages).to include "Password can't be blank"
+        expect(@user.errors.full_messages).to include "パスワードを入力してください"
       end
 
       it 'passwordは全角を使用できない' do
         @user.password = "あああああ１２"
         @user.valid?
-        expect(@user.errors.full_messages).to include "Password should include English and numbers,and can be used only in half-width"
+        expect(@user.errors.full_messages).to include "パスワードは半角英数字を含み、6文字以上でお願いします"
       end
 
       it 'passwordは6文字以上でなければならない' do
         @user.password = "aa123"
         @user.valid?
-        expect(@user.errors.full_messages).to include "Password is too short (minimum is 6 characters)"
+        expect(@user.errors.full_messages).to include "パスワードは6文字以上で入力してください"
       end
 
       it 'passwordは半角英数字混合でなければならない' do
         @user.password = "aaaaaaaa"
         @user.valid?
-        expect(@user.errors.full_messages).to include "Password should include English and numbers,and can be used only in half-width"
+        expect(@user.errors.full_messages).to include "パスワードは半角英数字を含み、6文字以上でお願いします"
       end
 
       it 'team_idが空では保存できない' do
         @user.team = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include "Team must exist"
+        expect(@user.errors.full_messages).to include "所属を入力してください"
       end
     end
   end

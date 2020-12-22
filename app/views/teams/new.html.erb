@@ -5,6 +5,7 @@
       <h2>チーム名を入力し、チームを作成しましょう。</h2>
       
       <%= form_with model:@team, local: true do |f|%>
+      <%= render 'share/error_messages', model: f.object %>
       <div>
         <%= f.label :name, "チーム名" %>
       </div>

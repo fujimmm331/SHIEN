@@ -17,14 +17,14 @@ RSpec.describe Team, type: :model do
       it 'チーム名が空欄だと保存できない' do
         @team.name = ""
         @team.valid?
-        expect(@team.errors.full_messages).to include "Name can't be blank"
+        expect(@team.errors.full_messages).to include "チーム名を入力してください"
       end
 
       it 'チーム名がかぶっていると保存できない' do
         @team.save
         other_team = FactoryBot.build(:team)
         other_team.valid?
-        expect(other_team.errors.full_messages).to include "Name has already been taken"
+        expect(other_team.errors.full_messages).to include "チーム名はすでに存在します"
       end
     end
   end
