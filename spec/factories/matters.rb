@@ -10,7 +10,7 @@ FactoryBot.define do
     kana_sales_person {kana_sales_name}
     phone_number {"0311112222"}
     cell_phone_number {"09011113333"}
-    postal_code {"111-1111"}
+    postal_code {"1111111"}
     municipality {address.city.kanji}
     address {"1-1-1"}
     building {"フレーム神南坂4F"}
