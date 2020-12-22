@@ -46,7 +46,7 @@
         <div><span class="must">必須</span></div>
         <%= f.label :password_confirmation, "所属" %>
       </div>
-      <%= f.collection_select :team_id, Team.all, :id, :name, {prompt: "チームを選択"},{class: "form"}%>
+      <%= f.collection_select :team_id, Team.all, :id, :name, {prompt: "所属を選択"},{class: "form"}%>
     </div>
 
     <div class="actions">
