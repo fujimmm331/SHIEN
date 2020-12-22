@@ -8,7 +8,7 @@ class User < ApplicationRecord
   belongs_to :team
 
   PASSWORD_VALI = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates :password, format: {with: PASSWORD_VALI, message: 'は半角英数字を含み、6文字以上で必要です'}
+  validates :password, format: {with: PASSWORD_VALI, message: 'は半角英数字を含み、6文字以上でお願いします'}
   validates :name, presence: true
 
   # 簡単ログイン用のユーザー情報
