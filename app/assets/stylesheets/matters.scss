@@ -1,9 +1,18 @@
 .matter_main_contents{
   margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
 }
 
 .matter_contents, .matter_btn_area{
   display: flex;
+  
 }
 
 .matter_btn_area{
@@ -29,7 +38,8 @@
 
 .matter_table_record{
   margin-left: 20px;
-  width: 80%;
+  margin-right: 20px;
+  width: 98%;
   font-size: larger; 
 }
 
@@ -46,13 +56,20 @@
 }
 
 .new_form_area{
-  width: 500px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
 }
 
 .new_form_input{
-  width: 500px;
+  width: 95%;
   height: 30px;
   font-size: 16px;
   border: solid 1px gray;
@@ -65,7 +82,7 @@
 
 .new_matter_btn{
   height: 40px;
-  width: 500px;
+  width: 95%;
   font-size: 16px;
   background-color:#ff9933;
   border: solid 1px #ffffff;
@@ -106,6 +123,7 @@
 .matter_contactlog_btn{
   background-color: #00cc33;
   border: solid 1px #33cc66;
+  font-size: 15px;
 }
 
 .matter_destroy_btn{
