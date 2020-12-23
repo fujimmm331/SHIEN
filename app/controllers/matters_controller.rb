@@ -22,6 +22,7 @@ class MattersController < ApplicationController
   end
 
   def show
+    @contact_log = ContactLog.new
   end
 
   def edit  
