@@ -44,7 +44,7 @@
         <%= form_with model:[@matter, @contact_log], local: true do |f|%>
         <div class="contact_log_box_side">
           <%= f.label :status, "対応あり", class:"contact_action_required_box"%>
-          <%= f.check_box :status, {class:"contact_action_required_box"}, "要対応", "メモ"%>
+          <%= f.check_box :status, {class:"contact_action_required_box"}, "要対応", ""%>
         </div>
         <div class="contact_log_column">column:チェックを入れると、対応する必要がありと担当者に通知されます。</div>
             
