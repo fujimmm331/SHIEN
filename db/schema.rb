@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_12_22_093417) do
 
   create_table "contact_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "status"
     t.text "comment", null: false
     t.bigint "user_id"
     t.bigint "team_id"
