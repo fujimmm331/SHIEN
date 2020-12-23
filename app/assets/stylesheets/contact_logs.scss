@@ -1,8 +1,8 @@
 .contact_log_area{
   width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 220px;
   margin-top: 40px;
+  margin-left: 40px;
   padding: 20px;
   border-radius: 20px;
   box-shadow:
@@ -50,4 +50,48 @@
   margin-right:5px ;
   margin-bottom: 0px;
   display: block; 
+}
+
+.contact_logs_side{
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 600px;
+  height: 810px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+}
+
+.logs{
+  overflow: scroll;
+  height: 95%;
+}
+
+.contact_log{
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.contact_log_top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_log_status{
+  font-size: 22px;
+  color:red ;
+}
+
+.contact_log_middle{
+  font-size: 18px;
+  margin: 20px 0px;
+}
+
+.contact_log_bottom{
+  text-align: right;
 }

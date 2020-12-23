@@ -22,7 +22,7 @@
 .matter_side{
   width: calc(100vw - 200px);
   height: 100vh;
-  overflow: scroll ;
+  display: flex;
 }
 
 .matter_info{
@@ -57,9 +57,9 @@
 
 .new_form_area{
   width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
+  height: 550px;
+  margin-top: 40px;
+  margin-left: 40px;
   padding: 20px;
   border-radius: 20px;
   box-shadow:
@@ -91,8 +91,6 @@
   text-align: center;
   cursor: pointer;
   border: solid 1px #ff9930;
-  margin-top: 20px;
-  margin-bottom: 50px;
 }
 
 .matter_title{
@@ -116,8 +114,6 @@
   text-align: center;
   cursor: pointer;
   border: solid 1px #ff9930;
-  margin-top: 10px;
-  
 }
 
 .matter_contactlog_btn{

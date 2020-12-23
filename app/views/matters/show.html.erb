@@ -1,58 +1,86 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side">
-    <%# 案件詳細を表示 %>
-    <div class="new_form_area">
-      <h1 class="new_matter"><span class="title"><%= @matter.name%></span></h1>
+    <div>
+      <%# 案件詳細を表示 %>
+      <div class="new_form_area">
+        <h2 class="new_matter"><span class="title"><%= @matter.name%></span></h2>
 
-      <div class="field">
-        <div class="matter_title">先方のご担当者：</div>
-        <span class="matter_text"><%= @matter.sales_person%> / <%= @matter.kana_sales_person%> 様</span>
-      </div>
+        <div class="field">
+          <div class="matter_title">先方のご担当者：</div>
+          <span class="matter_text"><%= @matter.sales_person%> / <%= @matter.kana_sales_person%> 様</span>
+        </div>
 
-      <div class="field">
-        <div class="matter_title">電話番号：</div>
-        <span class="matter_text"><%= @matter.phone_number%></span>
-        <div class="matter_title">携帯電話：</div>
-        <span class="matter_text"><%= @matter.cell_phone_number%></span>
-      </div>
+        <div class="field">
+          <div class="matter_title">電話番号：</div>
+          <span class="matter_text"><%= @matter.phone_number%></span>
+          <div class="matter_title">携帯電話：</div>
+          <span class="matter_text"><%= @matter.cell_phone_number%></span>
+        </div>
 
-      <div class="field">
-        <div class="matter_title">住所：</div>
-        <span class="matter_text"><%= @matter.postal_code%></span>
-        <div><span class="matter_text"><%= @matter.municipality%><%= @matter.address%><%= @matter.building%></span></div>
-      </div>
+        <div class="field">
+          <div class="matter_title">住所：</div>
+          <span class="matter_text"><%= @matter.postal_code%></span>
+          <div><span class="matter_text"><%= @matter.municipality%><%= @matter.address%><%= @matter.building%></span></div>
+        </div>
 
-      <div class="field">
-        <div>担当者：</div>
-        <%= @matter.user.team.name%><br>
-        <%= @matter.user.name%>
-      </div>
+        <div class="field">
+          <div>担当者：</div>
+          <%= @matter.user.team.name%><br>
+          <%= @matter.user.name%>
+        </div>
 
-      <div class="matter_btn_area">
-        <%= link_to "コンタクトログ一覧", matter_contact_logs_path(@matter.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
-        <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
-        <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
+        <div class="matter_btn_area">
+          <%= link_to "コンタクトログ一覧", matter_contact_logs_path(@matter.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
+          <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
+        </div>
       </div>
-    </div>
-    <%# /案件詳細を表示 %>
+      <%# /案件詳細を表示 %>
 
-    <%# コンタクトログ入力フォームを表示 %>
-    <div class="contact_log_area">
-      <h5><span class="title">コンタクトログを残す</span></h5>
-      <%= form_with model:[@matter, @contact_log], local: true do |f|%>
-      <div class="contact_log_box_side">
-        <%= f.label :status, "対応あり", class:"contact_action_required_box"%>
-        <%= f.check_box :status, {class:"contact_action_required_box"}, "要対応", "メモ"%>
-      </div>
-      <div class="contact_log_column">column:チェックを入れると、対応する必要がありと担当者に通知されます。</div>
+      <%# コンタクトログ入力フォームを表示 %>
+      <div class="contact_log_area">
+        <h5><span class="title">コンタクトログを残す</span></h5>
+        <%= form_with model:[@matter, @contact_log], local: true do |f|%>
+        <div class="contact_log_box_side">
+          <%= f.label :status, "対応あり", class:"contact_action_required_box"%>
+          <%= f.check_box :status, {class:"contact_action_required_box"}, "要対応", "メモ"%>
+        </div>
+        <div class="contact_log_column">column:チェックを入れると、対応する必要がありと担当者に通知されます。</div>
             
-      <div class="contact_log_form_side">
-        <%= f.text_area :comment, size: "55x3", class:"contact_log_form", placeholder: "テキストを入力"%>
-        <%= f.submit "保存する", class:"contact_log_btn"%>
+        <div class="contact_log_form_side">
+          <%= f.text_area :comment, size: "55x3", class:"contact_log_form", placeholder: "テキストを入力"%>
+          <%= f.submit "保存する", class:"contact_log_btn"%>
+        </div>
+        <% end %>
       </div>
-      <% end %>
+      <%# /コンタクトログ入力フォームを表示 %>
     </div>
-    <%# /コンタクトログ入力フォームを表示 %>
+
+
+    <div>
+      <div class="contact_logs_side">
+        <h5><span class="title">直近のコンタクトログ</span></h5>
+        <div class="logs">
+
+        <% if @logs != [] %>
+        <% @logs.each do |log|%>
+        <div class="contact_log">
+          <div class="contact_log_top">
+            <div class="contact_log_status"><%= log.status%></div>
+            <div><%=l log.created_at%></div>
+          </div>
+          <div class="contact_log_middle"><%= log.comment%></div>
+          <div class="contact_log_bottom">記入者：<%= log.user.name%></div>
+        </div>
+        <% end %>
+
+        <% else %>
+        <div>コンタクトログはありません。</div>
+        <% end %>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

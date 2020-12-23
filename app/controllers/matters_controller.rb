@@ -23,6 +23,7 @@ class MattersController < ApplicationController
 
   def show
     @contact_log = ContactLog.new
+    @logs = @matter.contact_logs.order(created_at: :desc).limit(4)
   end
 
   def edit  

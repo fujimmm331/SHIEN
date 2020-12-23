@@ -4,7 +4,6 @@ class ContactLogsController < ApplicationController
 
   def create
     ContactLog.create(contact_log_params)
-    binding.pry
     redirect_to matter_path(params[:matter_id])
   end
 end
