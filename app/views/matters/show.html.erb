@@ -29,7 +29,7 @@
         </div>
 
         <div class="matter_btn_area">
-          <%= link_to "コンタクト履歴", "#", class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <%= link_to "コンタクト履歴", matter_contact_logs_path(@matter.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
           <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
           <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
         </div>
