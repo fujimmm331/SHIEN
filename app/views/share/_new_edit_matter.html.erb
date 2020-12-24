@@ -1,11 +1,10 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side">
-    <%= form_with model:@matter, class:"new_form_area", local: true do |f|%>
-    <div>
+    <%= form_with model:@matter, class:"matter_new_edit_forms", local: true do |f|%>
+    <div class="matter_new_edit_form_side">
       <h1 class="new_matter"><span class="title">新規案件作成</span></h1>
       <h4>各項目を入力し、新規案件を作成しましょう。</h4>
-      <%= render 'share/error_messages', model: f.object %>
     
         <div class="field">
           <div class="colmun">
@@ -88,6 +87,7 @@
           <%= f.submit "変更する", class:"new_matter_btn"%>
         <% end %>
       </div>
+      <%= render 'share/error_messages', model: f.object %>
     </div>
     <% end %>
   </div>

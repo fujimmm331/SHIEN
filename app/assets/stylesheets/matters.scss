@@ -1,8 +1,22 @@
-.matter_main_contents{
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 40px;
+.matter_contents, .matter_btn_area, .matter_area{
+  display: flex;  
+}
+
+.matter_contents{
+  height: 100vh;
+}
+
+.matter_area{
+  
+
+}
+
+.left_area, .right_area,.matter_side_index{
   padding: 20px;
+}
+
+.matter_info,.contact_log_area,.contact_logs_area,.matter_main_contents,.search_form_area,.matter_new_edit_form_side,.matter_new_edit_form_error{
+  padding: 30px;
   border-radius: 20px;
   box-shadow:
     0 -3px 5px #e5e5e5,
@@ -10,26 +24,45 @@
    ;
 }
 
-.matter_contents, .matter_btn_area{
-  display: flex;
-  
+.matter_info,.matter_main_contents,.matter_new_edit_form_side,.matter_new_edit_form_error{
+  overflow: scroll;
+}
+
+.matter_main_contents{
+  height: calc(100% - 250px);
+}
+
+.contact_log_area,.contact_logs_area{
+  width: 500px;
+}
+
+.contact_log_area{
+  height: 240px;
+  margin-bottom: 30px;
+}
+
+.contact_logs_area{
+  height: calc(100% - 270px);
+}
+
+
+.matter_info{
+  height: 100%;
+  width: 650px;
 }
 
 .matter_btn_area{
   justify-content: space-between;
 }
 
-.matter_side{
+.matter_side,.matter_side_index{
   width: calc(100vw - 200px);
   height: 100vh;
   display: flex;
 }
 
-.matter_info{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-weight: 700;
+.matter_side_index{
+  display: block;
 }
 
 .table_title{
@@ -53,19 +86,36 @@
 
 .new_matter{
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .new_form_area{
   width: 600px;
   height: 550px;
-  margin-top: 40px;
-  margin-left: 40px;
   padding: 20px;
   border-radius: 20px;
   box-shadow:
     0 -3px 5px #e5e5e5,
     0 3px 5px #e5e5e5,
    ;
+}
+
+.matter_new_edit_forms{
+  display: flex;
+}
+
+.matter_new_edit_form_side,.matter_new_edit_form_error{
+  margin: 40px;
+  padding: 20px;
+}
+
+.matter_new_edit_form_side{
+  width: 600px;
+}
+
+.matter_new_edit_form_error{
+  height: 450px;
+  width: 450px;
 }
 
 .new_form_input{
@@ -81,6 +131,7 @@
 }
 
 .new_matter_btn{
+  display: block;
   height: 40px;
   width: 95%;
   font-size: 16px;
