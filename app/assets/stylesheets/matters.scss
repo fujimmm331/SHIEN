@@ -1,4 +1,4 @@
-.matter_contents, .matter_btn_area, .matter_area{
+.matter_contents, .matter_btn_area, .matter_area,.contact_logs{
   display: flex;  
 }
 
@@ -167,9 +167,14 @@
   border: solid 1px #ff9930;
 }
 
-.matter_contactlog_btn{
+.matter_contactlog_btn,.matter_contactlog_btn2{
   background-color: #00cc33;
   border: solid 1px #33cc66;
+  font-size: 15px;
+}
+
+.matter_contactlog_btn2{
+  width: 300px;
   font-size: 15px;
 }
 

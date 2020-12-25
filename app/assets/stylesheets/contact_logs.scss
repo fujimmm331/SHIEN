@@ -68,10 +68,16 @@
 .contact_log_middle{
   font-size: 18px;
   margin: 20px 0px;
+  white-space: pre-wrap;
 }
 
 .contact_log_bottom{
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+.contact_log_title{
+  justify-content: space-between;
+  align-items: flex-end;
 }
