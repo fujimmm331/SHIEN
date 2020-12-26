@@ -63,33 +63,8 @@
       <div class="contact_logs_area">
     
         <h5><span class="title">直近のコンタクトログ</span></h5>
-
-
-        <div class="logs">
-        <% if @logs != [] %>
-        <% @logs.each do |log|%>
-          
-          <div class="contact_log">
-            <div class="contact_log_top">
-              <% if log.status != nil %><span class="contact_log_status"><%= log.status%></span><%end%>
-            </div>
-            <div class="contact_log_middle"><%= log.comment%></div>
-            <div class="contact_log_bottom">
-              <div>記入者：<%= log.user.name%></div>
-              <div><%=l log.created_at%></div>
-            </div>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-            <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-          </svg>
-        <% end %>
-        <%= link_to "過去のコンタクトログを見る", matter_contact_logs_path(@matter.id) , class:["matter_edit_btn","matter_contactlog_btn2"] %>
-
-        <% else %>
-          <div>コンタクトログはありません。</div>
-        <% end %>
-        </div>
+        <%= render 'share/contact_logs'%>
+        
       </div>
     </div>
     <%# /直近のコンタクトログを表示 %>

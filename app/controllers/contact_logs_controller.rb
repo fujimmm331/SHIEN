@@ -1,5 +1,7 @@
 class ContactLogsController < ApplicationController
   def index
+    @matter = Matter.find(params[:matter_id])
+    @logs = @matter.contact_logs.order(created_at: :desc).includes(:user)
   end
 
   def create
