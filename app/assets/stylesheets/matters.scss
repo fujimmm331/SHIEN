@@ -1,26 +1,68 @@
-.matter_main_contents{
-  margin-left: 20px;
+.matter_contents, .matter_btn_area, .matter_area,.contact_logs{
+  display: flex;  
 }
 
-.matter_contents, .matter_btn_area{
-  display: flex;
+.matter_contents{
+  height: 100vh;
+}
+
+.matter_area{
+  
+
+}
+
+.left_area, .right_area,.matter_side_index{
+  padding: 20px;
+}
+
+.matter_info,.contact_log_area,.contact_logs_area,.matter_main_contents,.search_form_area,.matter_new_edit_form_side,.matter_new_edit_form_error{
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+}
+
+.matter_info,.matter_main_contents,.matter_new_edit_form_side,.matter_new_edit_form_error{
+  overflow: scroll;
+}
+
+.matter_main_contents{
+  height: calc(100% - 250px);
+}
+
+.contact_log_area,.contact_logs_area{
+  width: 500px;
+}
+
+.contact_log_area{
+  height: 240px;
+  margin-bottom: 30px;
+}
+
+.contact_logs_area{
+  height: calc(100% - 270px);
+}
+
+
+.matter_info{
+  height: 100%;
+  width: 650px;
 }
 
 .matter_btn_area{
   justify-content: space-between;
 }
 
-.matter_side{
+.matter_side,.matter_side_index{
   width: calc(100vw - 200px);
   height: 100vh;
-  overflow: scroll ;
+  display: flex;
 }
 
-.matter_info{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-weight: 700;
+.matter_side_index{
+  display: block;
 }
 
 .table_title{
@@ -29,7 +71,8 @@
 
 .matter_table_record{
   margin-left: 20px;
-  width: 80%;
+  margin-right: 20px;
+  width: 98%;
   font-size: larger; 
 }
 
@@ -43,16 +86,40 @@
 
 .new_matter{
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .new_form_area{
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 600px;
+  height: 550px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+}
+
+.matter_new_edit_forms{
+  display: flex;
+}
+
+.matter_new_edit_form_side,.matter_new_edit_form_error{
+  margin: 40px;
+  padding: 20px;
+}
+
+.matter_new_edit_form_side{
+  width: 600px;
+}
+
+.matter_new_edit_form_error{
+  height: 450px;
+  width: 450px;
 }
 
 .new_form_input{
-  width: 500px;
+  width: 95%;
   height: 30px;
   font-size: 16px;
   border: solid 1px gray;
@@ -64,8 +131,9 @@
 }
 
 .new_matter_btn{
+  display: block;
   height: 40px;
-  width: 500px;
+  width: 95%;
   font-size: 16px;
   background-color:#ff9933;
   border: solid 1px #ffffff;
@@ -74,8 +142,6 @@
   text-align: center;
   cursor: pointer;
   border: solid 1px #ff9930;
-  margin-top: 20px;
-  margin-bottom: 50px;
 }
 
 .matter_title{
@@ -99,13 +165,17 @@
   text-align: center;
   cursor: pointer;
   border: solid 1px #ff9930;
-  margin-top: 10px;
-  
 }
 
-.matter_contactlog_btn{
+.matter_contactlog_btn,.matter_contactlog_btn2{
   background-color: #00cc33;
   border: solid 1px #33cc66;
+  font-size: 15px;
+}
+
+.matter_contactlog_btn2{
+  width: 300px;
+  font-size: 15px;
 }
 
 .matter_destroy_btn{

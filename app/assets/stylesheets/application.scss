@@ -61,3 +61,16 @@
    margin-right: 10px;
    border-bottom: 1px solid #ffffff;
  }
+
+ .error_message_count{
+   margin-bottom: 20px;
+ }
+
+ .error_message_count_str{
+   border-bottom: red 3px solid;
+ }
+
+ .field_with_errors{
+  color: red;
+  font-weight: 600;
+}

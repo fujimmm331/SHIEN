@@ -168,14 +168,26 @@
 .team_main_content{
   margin-left: 20px;
   margin-bottom: 60px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+}
+
+.team_main_content{
+  margin-left: 20px;
+  margin-bottom: 60px;
+  margin-top: 40px;
+  padding: 20px;
 }
 
 .search_form_area{
-  border: gray 1px solid;
   width: 750px;
   height: 250px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .search_forms_upper, .todo_lists{
