@@ -18,6 +18,9 @@ ja:
       building: 建物名
       user: ユーザー
       team: 所属
+    contact_log:
+      comment: コンタクトログ
+      status: ステータス
  time:
     formats:
       default: "%Y/%m/%d %H:%M"
