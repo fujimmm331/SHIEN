@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_093417) do
     t.string "name", null: false
     t.string "sales_person", null: false
     t.string "kana_sales_person", null: false
+    t.string "email", null: false
     t.string "phone_number", null: false
     t.string "cell_phone_number", null: false
     t.string "postal_code", null: false
