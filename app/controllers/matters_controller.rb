@@ -44,7 +44,7 @@ class MattersController < ApplicationController
 
   private
   def matter_params
-    params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)
+    params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :email, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)
   end
 
   def user_check
