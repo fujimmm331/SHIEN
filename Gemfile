@@ -41,7 +41,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
-  gem 'gimei'
 end
 
 group :development do
@@ -67,6 +66,7 @@ gem 'pry-rails'
 gem 'devise'
 gem 'data-confirm-modal'
 gem 'rails-i18n'
+gem 'gimei'
 
 group :production, :staging do
   gem 'unicorn'
