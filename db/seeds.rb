@@ -1,7 +1,14 @@
-5.times do |i|
-  Team.create(name:"サンプル第#{i + 1}支店")
-end
+Team.create(name:"サンプル第1支店")
 
-10.times do |i|
-  Matter.create(name:"案件#{i + 1}", sales_person:"田中太郎", kana_sales_person:"タナカタロウ", phone_number:"0399991111", cell_phone_number:"09099992222", postal_code:"2490006", municipality:"逗子市逗子市", address:"4-5-14", building:"藤村ビル1F", user_id:1, team_id:1)
+User.create(name:"ゲストユーザー", email:"guest@example.com", password:SecureRandom.hex(10), team_id:1)
+
+
+100.times do |i|
+  gimei = Gimei.name
+  sales_name = gimei.kanji.gsub(" ","")
+  kana_sales_name = gimei.katakana.gsub(" ","")
+  email = Faker::Internet.free_email
+  municipality = Gimei.address.city.kanji
+  
+  Matter.create(name:"サンプル案件#{i + 1}", sales_person: sales_name, kana_sales_person: kana_sales_name, email: email, phone_number:"0312345678", cell_phone_number:"09087654321", postal_code:"1000001", municipality: municipality, address:"1-1-1", building:"サンプルビル1F", user_id:1, team_id:1)
 end

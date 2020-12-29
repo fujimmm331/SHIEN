@@ -22,6 +22,14 @@
           <%= f.text_field :sales_person, class:"new_form_input", autofocus: true, placeholder:"例）田中太郎" %>
         </div>
 
+        <div class="field">
+          <div class="colmun">
+            <div><span class="must">必須</span></div>
+            <%= f.label :email, "メールアドレス" %>
+          </div>
+          <%= f.email_field :email, class:"new_form_input", autofocus: true, placeholder:"tanaka.taro@sample.com" %>
+        </div>
+
         <div class="with_announce">
           <div class="colmun">
             <div><span class="must">必須</span></div>

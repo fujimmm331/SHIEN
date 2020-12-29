@@ -10,6 +10,7 @@ ja:
       name: 案件名
       sales_person: 先方の担当者
       kana_sales_person: フリガナ
+      email: メールアドレス
       phone_number: 電話番号
       cell_phone_number: 携帯電話番号
       postal_code: 郵便番号

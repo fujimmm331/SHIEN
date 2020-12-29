@@ -8,6 +8,7 @@ FactoryBot.define do
     name {"テスト案件"}
     sales_person {sales_name} 
     kana_sales_person {kana_sales_name}
+    email {Faker::Internet.free_email}
     phone_number {"0311112222"}
     cell_phone_number {"09011113333"}
     postal_code {"1111111"}

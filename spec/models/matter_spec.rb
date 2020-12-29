@@ -32,6 +32,18 @@ RSpec.describe Matter, type: :model do
         expect(@matter.errors.full_messages).to include "先方の担当者を入力してください"
       end
 
+      it 'メールアドレスが空では保存できない' do
+        @matter.email = ""
+        @matter.valid?
+        expect(@matter.errors.full_messages).to include "メールアドレスを入力してください"
+      end
+
+      it 'メールアドレスが正しい表記でなければ保存できない' do
+        @matter.email = "aaaaa"
+        @matter.valid?
+        expect(@matter.errors.full_messages).to include "メールアドレスが間違っています"
+      end
+
       it 'フリガナが空では保存できない' do
         @matter.kana_sales_person = ""
         @matter.valid?
