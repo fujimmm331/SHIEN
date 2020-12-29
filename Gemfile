@@ -33,7 +33,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -67,6 +66,7 @@ gem 'devise'
 gem 'data-confirm-modal'
 gem 'rails-i18n'
 gem 'gimei'
+gem 'faker'
 
 group :production, :staging do
   gem 'unicorn'
