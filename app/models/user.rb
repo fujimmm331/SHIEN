@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
   has_many :matters
   has_many :contact_logs
+
+  #カラムの名前が異なるため、明示的に設定
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  # /カラムの名前が異なるため、明示的に設定
+
   belongs_to :team
 
   PASSWORD_VALI = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
