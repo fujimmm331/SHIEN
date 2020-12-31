@@ -86,7 +86,8 @@
 }
 
 .bottom_sign_in_btn:hover{
-  background-color: #ffb770;
+  background-color: #ffffff;
+  border: solid 1px silver;
 }
 
 
@@ -173,27 +174,16 @@
   justify-content: center;
 }
 
-.team_main_contents{
-  width: 100%;
-}
-
 .team_main_content{
-  margin-left: 20px;
+  width: 750px;
+  height: calc(100% - 270px);
   margin-bottom: 60px;
-  margin-top: 40px;
   padding: 20px;
   border-radius: 20px;
   box-shadow:
     0 -3px 5px #e5e5e5,
     0 3px 5px #e5e5e5,
    ;
-}
-
-.team_main_content{
-  margin-left: 20px;
-  margin-bottom: 60px;
-  margin-top: 40px;
-  padding: 20px;
 }
 
 .search_form_area{
