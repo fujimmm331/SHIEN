@@ -18,9 +18,12 @@
 }
 
 .about_shien, .features{
-  text-align: center;
   font-size: x-large;
   margin-bottom: 100px;
+}
+
+.feature_text{
+  margin:40px 20px ;
 }
 
 .title{
@@ -28,8 +31,10 @@
 }
 
 .about_shien_text{
-  list-style: none;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .feature{
@@ -59,26 +64,30 @@
 .go_shien{
   background-color: #006666 ;
   color: #ffffff;
-  width: 60%;
+  width: fit-content;
   height: 250px;
-  padding: 20px;
-  border-radius:10px;
+  padding: 50px;
+  border-radius:70px;
   text-align: center;
   font-size: x-large;
-  margin: 0px auto;
   margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bottom_sign_in_btn{
+  display: block;
   background-color: #ff9933;
   color: #ffffff;
   padding: 20px;
   border-radius:30px;
   transition: all .3s;
+  margin-top: 15px;
 }
 
 .bottom_sign_in_btn:hover{
-  background-color: #ffb770;
+  background-color: #ffffff;
+  border: solid 1px silver;
 }
 
 
@@ -87,8 +96,12 @@
   width: 100vw;
 }
 
-.team_title{
+.team_title, .title_area,.text_side{
   text-align: center;
+}
+
+.title_area{
+  margin-top: 20px;
 }
 
 .team_forms{
@@ -161,27 +174,16 @@
   justify-content: center;
 }
 
-.team_main_contents{
-  width: 100%;
-}
-
 .team_main_content{
-  margin-left: 20px;
+  width: 750px;
+  height: calc(100% - 270px);
   margin-bottom: 60px;
-  margin-top: 40px;
   padding: 20px;
   border-radius: 20px;
   box-shadow:
     0 -3px 5px #e5e5e5,
     0 3px 5px #e5e5e5,
    ;
-}
-
-.team_main_content{
-  margin-left: 20px;
-  margin-bottom: 60px;
-  margin-top: 40px;
-  padding: 20px;
 }
 
 .search_form_area{
@@ -224,12 +226,4 @@
   border: solid 1px #ff9930;
   margin-top: 10px;
   margin-left: 20px;
-}
-
-.todo_list{
-  margin-left: 20px;
-}
-
-.todo_day{
-  font-weight: 600;
 }

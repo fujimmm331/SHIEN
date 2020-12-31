@@ -1,5 +1,7 @@
 <% if user_signed_in? %>
+<div class="matter_contents">
   <%= render 'share/after_sign_in.html.erb'%>
+</div>
 <% else %>
   <%= render 'share/before_sign_in.html.erb'%>
 <% end %>
