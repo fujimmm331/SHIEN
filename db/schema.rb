@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_093417) do
+ActiveRecord::Schema.define(version: 2020_12_31_023147) do
 
   create_table "contact_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "status"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 2020_12_22_093417) do
     t.index ["user_id"], name: "index_matters_on_user_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "visiter_id", null: false
+    t.integer "visited_id", null: false
+    t.bigint "matter_id"
+    t.bigint "contact_log_id"
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_log_id"], name: "index_notifications_on_contact_log_id"
+    t.index ["matter_id"], name: "index_notifications_on_matter_id"
+  end
+
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -70,5 +82,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_093417) do
   add_foreign_key "contact_logs", "users"
   add_foreign_key "matters", "teams"
   add_foreign_key "matters", "users"
+  add_foreign_key "notifications", "contact_logs"
+  add_foreign_key "notifications", "matters"
   add_foreign_key "users", "teams"
 end
