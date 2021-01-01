@@ -5,7 +5,9 @@ class ContactLogsController < ApplicationController
   end
 
   def create
-    ContactLog.create(contact_log_params)
+    @contact_log = ContactLog.new(contact_log_params)
+    @contact_log.save if @contact_log.valid?
+    @contact_log.notification_create(@contact_log.user.id, @contact_log.matter.user.id, @contact_log.matter.id, @contact_log.id)
     redirect_to matter_path(params[:matter_id])
   end
 end
