@@ -1,3 +1,30 @@
-// Place all the styles related to the notifications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.notification{
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+  margin-bottom: 15px;
+}
+
+.notifications{
+  width: 800px;
+  margin-top: 30px;
+}
+
+.noti_upper{
+  margin-bottom: 10px;
+}
+
+.noti_user_name{
+  font-weight: 700;
+}
+
+.noti_log_comment,.noti_log_time{
+  color: silver;
+}
+
+.noti_log_time{
+  text-align: right;
+}

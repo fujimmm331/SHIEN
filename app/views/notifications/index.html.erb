@@ -1,2 +1,18 @@
-<h1>Notifications#index</h1>
-<p>Find me in app/views/notifications/index.html.erb</p>
+<div class="matter_contents">
+  <%= render 'share/menu_bar.html.erb'%>
+  <div class="matter_side_index">
+    <h2><span class="title">通知一覧</span></h2>
+    <div class="notifications">
+      <% 30.times do%>
+      <div class="notification">
+        <div class="noti_upper"><span class="contact_log_status">要対応</span></div>
+        <div class="noti_lower">
+          <div><span class="noti_user_name">ゲストユーザー</span>さんがコンタクトログに記入しました</div>
+          <div class="noti_log_comment">藤村さんから問い合わせあり、折り返しをお願いします。</div>
+          <div class="noti_log_time">2021/01/01 10:11</div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>
