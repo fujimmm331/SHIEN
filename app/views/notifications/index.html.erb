@@ -2,17 +2,24 @@
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side_index">
     <h2><span class="title">通知一覧</span></h2>
+    <% @notifications.each do |notification|%>
+    <% judge = (notification.contact_log.status != nil)%>
     <div class="notifications">
-      <% 30.times do%>
       <div class="notification">
-        <div class="noti_upper"><span class="contact_log_status">要対応</span></div>
+        <div class="noti_upper">
+          <% if judge %><span class="contact_log_status"><%= notification.contact_log.status%></span><%end%>
+        </div>
         <div class="noti_lower">
-          <div><span class="noti_user_name">ゲストユーザー</span>さんがコンタクトログに記入しました</div>
-          <div class="noti_log_comment">藤村さんから問い合わせあり、折り返しをお願いします。</div>
-          <div class="noti_log_time">2021/01/01 10:11</div>
+          <% if judge %>
+            <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんより対応依頼があります。</div>
+          <% else%>
+            <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんがコンタクトログに記入しました。</div>
+          <% end%>
+          <div class="noti_log_comment"><%= notification.contact_log.comment%></div>
+          <div class="noti_log_time"><%=l notification.created_at%></div>
         </div>
       </div>
-      <%end%>
     </div>
+    <%end%>
   </div>
 </div>
