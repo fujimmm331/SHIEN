@@ -7,6 +7,24 @@
   <div class="matter_side_index">  
     <%= render 'share/search_matter'%>
     <div class="team_main_content">
-      <h1><span class="title">最近追加されたコンタクトログ</span></h1>
-
+      <h2><span class="title">最近届いた通知</span></h2>
+      <% @notifications.each do |notification|%>
+      <% judge = (notification.contact_log.status != nil)%>
+      <div>
+        <div class="notification_index">
+          <div class="noti_upper">
+            <% if judge %><span class="contact_log_status"><%= notification.contact_log.status%></span><%end%>
+          </div>
+          <div class="noti_lower">
+            <% if judge %>
+              <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんより対応依頼があります。</div>
+            <% else%>
+              <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんがコンタクトログに記入しました。</div>
+            <% end%>
+            <div class="noti_log_comment"><%= notification.contact_log.comment%></div>
+            <div class="noti_log_time"><%=l notification.created_at%></div>
+          </div>
+        </div>
+      </div>
+    <%end%>
   </div>
