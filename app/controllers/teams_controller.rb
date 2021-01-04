@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :sign_in_check, only: [:new, :create]
 
   def index   
-    @notifications = Notification.where(visited_id: current_user.id).where.not(visiter_id: current_user.id).order(created_at: :desc).limit(3) if user_signed_in?
+    @notifications.limit(3) if user_signed_in?
   end
   
   def new
