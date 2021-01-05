@@ -11,6 +11,7 @@
               <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんより対応依頼があります。</div>
             <% else%>
               <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんがコンタクトログに記入しました。</div>
+              <div class="noti_matter_name">案件名：<%= notification.contact_log.matter.name%></div>
             <% end%>
             <div class="noti_log_comment"><%= notification.contact_log.comment%></div>
             <div class="noti_log_time"><%=l notification.created_at%></div>
