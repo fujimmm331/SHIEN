@@ -148,7 +148,7 @@
 }
 
 .menu_title{
-  text-align: center;
+  margin-left: 10px;
   margin-top: 20px;
 }
 
@@ -158,10 +158,21 @@
 }
 
 .team_menu{
-  width: 100%;
-  padding: 10px;
+  text-align: center;
+  width: 90%;
+  padding: 5px;
   font-size: 18px;
   display: block;
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noti_int{
+  font-weight: 700;
+  color: tomato;
 }
 
 .notice_title{
