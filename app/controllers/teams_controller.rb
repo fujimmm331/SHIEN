@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :sign_in_check, only: [:new, :create]
 
   def index   
-    @notifications.limit(3) if user_signed_in?
+    @notifications = @notifications.limit(3) if user_signed_in?
   end
   
   def new
