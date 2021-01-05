@@ -1,0 +1,21 @@
+      <div class="noti_posts">
+      <% @notifications.each do |notification|%>
+      <% judge = (notification.contact_log.status != nil)%>
+      
+        <div class="noti_post" data-id=<%= notification.id%> data-check=<%= notification.checked%>>
+          <div class="noti_upper">
+            <% if judge %><span class="contact_log_status"><%= notification.contact_log.status%></span><%end%>
+          </div>
+          <div class="noti_lower"><%= link_to '', matter_path(notification.matter.id), class:"stretched-link"%>
+            <% if judge %>
+              <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんより対応依頼があります。</div>
+            <% else%>
+              <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんがコンタクトログに記入しました。</div>
+              <div class="noti_matter_name">案件名：<%= notification.contact_log.matter.name%></div>
+            <% end%>
+            <div class="noti_log_comment"><%= notification.contact_log.comment%></div>
+            <div class="noti_log_time"><%=l notification.created_at%></div>
+          </div>
+        </div>
+      <%end%>
+      </div>

@@ -1,0 +1,59 @@
+.notification{
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+  margin-bottom: 15px;
+}
+
+.noti_post{
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.notifications{
+  width: 800px;
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow:
+    0 -3px 5px #e5e5e5,
+    0 3px 5px #e5e5e5,
+   ;
+  margin-bottom: 15px;
+  overflow: scroll;
+}
+
+.noti_upper{
+  margin-bottom: 10px;
+}
+
+.noti_user_name{
+  font-weight: 700;
+}
+
+.noti_log_comment,.noti_log_time{
+  color: silver;
+}
+
+.noti_log_comment{
+  white-space: pre-wrap;
+}
+
+.noti_log_time{
+  text-align: right;
+}
+
+.noti_matter_name{
+  font-size: 15px;
+}
+
+div[data-check="false"] {
+  background: greenyellow;
+}

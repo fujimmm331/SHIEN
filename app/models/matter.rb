@@ -1,5 +1,6 @@
 class Matter < ApplicationRecord
   has_many :contact_logs, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   belongs_to :team
   belongs_to :user
 

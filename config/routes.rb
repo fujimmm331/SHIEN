@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
-  }
+  } 
+
   root to: "teams#index"
+
+  resources :notifications, only: :index
+  get 'notifications/:id', to: 'notifications#checked'
 
   resources :teams, only: [:index, :new, :create]
   resources :matters do

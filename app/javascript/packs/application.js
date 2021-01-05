@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('data-confirm-modal')
+require("../checked")
 import 'bootstrap'
 import '../src/application.scss'
 
