@@ -6,7 +6,7 @@
           <div class="noti_upper">
             <% if judge %><span class="contact_log_status"><%= notification.contact_log.status%></span><%end%>
           </div>
-          <div class="noti_lower">
+          <div class="noti_lower"><%= link_to '', matter_path(notification.matter.id), class:"stretched-link"%>
             <% if judge %>
               <div><span class="noti_user_name"><%= notification.contact_log.user.name%></span>さんより対応依頼があります。</div>
             <% else%>
