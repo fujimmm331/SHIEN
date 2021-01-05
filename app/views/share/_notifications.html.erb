@@ -1,7 +1,8 @@
+      <div class="noti_posts">
       <% @notifications.each do |notification|%>
       <% judge = (notification.contact_log.status != nil)%>
-      <div>
-        <div class="notification_index">
+      
+        <div class="noti_post" data-id=<%= notification.id%> data-check=<%= notification.checked%>>
           <div class="noti_upper">
             <% if judge %><span class="contact_log_status"><%= notification.contact_log.status%></span><%end%>
           </div>
@@ -15,5 +16,5 @@
             <div class="noti_log_time"><%=l notification.created_at%></div>
           </div>
         </div>
-      </div>
       <%end%>
+      </div>

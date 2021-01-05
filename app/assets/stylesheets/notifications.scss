@@ -8,7 +8,7 @@
   margin-bottom: 15px;
 }
 
-.notification_index{
+.noti_post{
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 20px;
@@ -46,4 +46,8 @@
 
 .noti_log_time{
   text-align: right;
+}
+
+div[data-check="false"] {
+  background: greenyellow;
 }
