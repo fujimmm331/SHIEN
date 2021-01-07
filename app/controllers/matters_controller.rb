@@ -1,3 +1,6 @@
+require 'csv'
+require 'date'
+
 class MattersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_matter, only: [:show, :edit, :update, :destroy]
@@ -24,6 +27,23 @@ class MattersController < ApplicationController
   def show
     @contact_log = ContactLog.new
     @logs = @matter.contact_logs.order(created_at: :desc).limit(4)
+
+    respond_to do |f|
+      f.html
+      f.csv do |csv|
+        download_matter_csv(@matter)
+      end
+    end
+  end
+
+  def download_matter_csv(matter)
+    csv_data = CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+      csv << values
+    end
+    send_data(csv_data, filename: "#{matter.name}(#{Date.today}).csv")
   end
 
   def edit  
