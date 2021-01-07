@@ -35,6 +35,9 @@
           <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
           <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
         </div>
+        <div class="matter_btn_area">
+          <%= link_to "csv出力", matter_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn"] %>
+        </div>
       </div>
       <%# /案件詳細を表示 %>
     </div>
