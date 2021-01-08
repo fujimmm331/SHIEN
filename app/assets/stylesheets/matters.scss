@@ -1,14 +1,9 @@
-.matter_contents, .matter_btn_area, .matter_area,.contact_logs{
+.matter_contents, .matter_btn_area, .matter_area,.contact_logs,.matter_title_area{
   display: flex;  
 }
 
 .matter_contents{
   height: 100vh;
-}
-
-.matter_area{
-  
-
 }
 
 .left_area, .right_area,.matter_side_index{
@@ -173,6 +168,10 @@
   background-color: #00cc33;
   border: solid 1px #33cc66;
   font-size: 15px;
+}
+
+.matter_csv_right{
+  margin: 0 0 0 auto;
 }
 
 .matter_contactlog_btn2{

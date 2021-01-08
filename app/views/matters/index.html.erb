@@ -3,7 +3,10 @@
   <div class="matter_side_index">
     <%= render 'share/search_matter.html.erb'%>
     <div class="matter_main_contents">
+
       <h1><span class="title">案件一覧</span></h1>
+      <%= link_to "csv出力", matters_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
+
       <table class="matter_table_record">
         <% if @matters != []%>
           <tr class="table_title">
@@ -18,7 +21,7 @@
           <% @matters.each do |matter| %>
           <tr class="table_records">
             <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
-            <td><%= matter.sales_person%> 様</td>
+            <td><%= matter.kana_sales_person%> 様</td>
             <td><%= matter.phone_number%></td>
             <td><%= matter.cell_phone_number%></td>
             <td><%= matter.postal_code%></td>
