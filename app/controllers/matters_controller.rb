@@ -8,6 +8,13 @@ class MattersController < ApplicationController
   
   def index
     @matters = Matter.all.order(id: "DESC")
+
+    respond_to do |f|
+      f.html
+      f.csv do |csv|
+        download_matters_csv(@matters)
+      end
+    end
   end
 
   def new
@@ -36,6 +43,7 @@ class MattersController < ApplicationController
     end
   end
 
+  #show用のcsv出力
   def download_matter_csv(matter)
     csv_data = CSV.generate do |csv|
       columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
@@ -44,6 +52,19 @@ class MattersController < ApplicationController
       csv << values
     end
     send_data(csv_data, filename: "#{matter.name}(#{Date.today}).csv")
+  end
+
+  #index用のcsv出力
+  def download_matters_csv(matters)
+    csv_data = CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      matters.each do |matter| 
+        values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+        csv << values
+      end
+    end
+    send_data(csv_data, filename: "(#{Date.today}).csv")
   end
 
   def edit  
