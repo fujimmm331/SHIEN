@@ -83,6 +83,17 @@ class MattersController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+
+    if (params[:phone_num] == "") && (params[:name] == "")
+      @matters = Matter.all
+    elsif params[:phone_num] != ""
+      @matters = Matter.search_phone_num(params[:phone_num])
+    elsif 
+      @matters = Matter.search_name(params[:name])
+    end
+  end
+
   private
   def matter_params
     params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :email, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)

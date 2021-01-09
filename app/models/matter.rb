@@ -11,4 +11,11 @@ class Matter < ApplicationRecord
   validates :phone_number, :cell_phone_number, format:{ with:/\A\d{10,11}\z/, message: "は半角数字・11桁以内でお願いします" }, unless: Proc.new { |a| a.phone_number.blank? }
   validates :postal_code, format:{ with:/\A\d{7}\z/, message: "は半角数字・7桁以内でお願いします"}, unless: Proc.new { |a| a.postal_code.blank? }
 
+  def self.search_phone_num(search)
+    Matter.where('phone_number LIKE (?)', "%#{search}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{search}%"))
+  end
+
+  def self.search_name(search)
+    Matter.where('kana_sales_person LIKE (?)', "%#{search}%")
+  end
 end
