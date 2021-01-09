@@ -1,26 +1,17 @@
-<%= form_with url:"#", class:"search_form_area", local: true do |f|%>
+<%= form_with url:search_matters_path, class:"search_form_area", method: :get, local: true do |f|%>
     <div class="search_main_content">
       <h3><span class="title">案件を検索する</span></h3>
       <div class="search_forms_upper">
         <div class="search_form">
-          <div class="search_label"><%= f.label :hoge,"電話番号" %></div>
-          <div><%= f.text_field :hoge, class:"search_input", placeholder:"ハイフン不要"%></div>
+          <div class="search_label"><%= f.label :phone_num,"電話番号" %></div>
+          <div><%= f.text_field :phone_num, class:"search_input", placeholder:"ハイフン不要"%></div>
         </div>
         <div class="search_form">
-          <div class="search_label"><%= f.label :hogehoge,"お客様名" %></div>
-          <div><%= f.text_field :hogehoge, class:"search_input", placeholder:"カタカナで入力可"%></div>
+          <div class="search_label"><%= f.label :name,"お客様名" %></div>
+          <div><%= f.text_field :name, class:"search_input", placeholder:"カタカナで入力可"%></div>
         </div>
       </div>
-      <div class="search_forms_upper">
-        <div class="search_form">
-          <div class="search_label"><%= f.label :fuga,"案件名" %></div>
-          <div><%= f.text_field :fuga, class:"search_input", placeholder:"カタカナで入力可"%></div>
-        </div>
-        <div class="search_form">
-          <div class="search_label"><%= f.label :fugafuga,"担当者" %></div>
-          <div><%= f.text_field :fugafuga, class:"search_input", placeholder:"カタカナで入力可"%></div>
-        </div>
-      </div>
+    
       <%= f.submit "検索する", class:["team_submit_btn", "search_submit_btn"]%>
     </div>
 <% end %>
