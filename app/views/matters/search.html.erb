@@ -4,8 +4,8 @@
     <%= render 'share/search_matter.html.erb'%>
     <div class="matter_main_contents">
 
-      <h1><span class="title">案件一覧</span></h1>
-      <%= link_to "csv出力", matters_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
+      <h1><span class="title">検索結果：<%= @matters.count%>件</span></h1>
+      <%= link_to "csv出力", search_matters_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
 
       <%= render 'share/results'%>
     </div>

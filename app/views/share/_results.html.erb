@@ -1,0 +1,26 @@
+     <table class="matter_table_record">
+        <% if @matters != []%>
+          <tr class="table_title">
+            <th>案件名</th>
+            <th>先方の担当者</th>
+            <th>電話番号</th>
+            <th>携帯電話番号</th>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>担当</th>
+          </tr>
+          <% @matters.each do |matter| %>
+          <tr class="table_records">
+            <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
+            <td><%= matter.kana_sales_person%> 様</td>
+            <td><%= matter.phone_number%></td>
+            <td><%= matter.cell_phone_number%></td>
+            <td><%= matter.postal_code%></td>
+            <td><%= matter.municipality%><%= matter.address%> <%= matter.building%></td>
+            <td><%= matter.user.name%></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <div>案件はありません</div>
+        <% end %>
+      </table>
