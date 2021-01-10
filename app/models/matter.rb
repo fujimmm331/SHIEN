@@ -11,12 +11,22 @@ class Matter < ApplicationRecord
   validates :phone_number, :cell_phone_number, format:{ with:/\A\d{10,11}\z/, message: "は半角数字・11桁以内でお願いします" }, unless: Proc.new { |a| a.phone_number.blank? }
   validates :postal_code, format:{ with:/\A\d{7}\z/, message: "は半角数字・7桁以内でお願いします"}, unless: Proc.new { |a| a.postal_code.blank? }
 
-  def self.search_phone_num(search)
-    Matter.where('phone_number LIKE (?)', "%#{search}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{search}%"))
-  end
 
-  def self.search_name(search)
-    Matter.where('kana_sales_person LIKE (?)', "%#{search}%")
+  def self.search(params)
+    case
+
+    #名前が入っていたら検索 
+    when params[:name].present?
+      Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
+
+    #電話番号が入っていたら検索
+    when params[:phone_num].present?
+      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%"))
+
+    #どちらも空っぽなら全てを取得
+    else
+      Matter.all
+    end
   end
 
   #index用のcsv出力

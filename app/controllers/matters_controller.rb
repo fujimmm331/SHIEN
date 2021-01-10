@@ -61,15 +61,11 @@ class MattersController < ApplicationController
   end
 
   def search
-
-    @matters = if params[:phone_num].present?
-                Matter.search_phone_num(params[:phone_num])
-               elsif params[:name].present?
-                Matter.search_name(params[:name])
+    @matters = if (search_params[:phone_num].present?) && (search_params[:name].present?)
+                []
                else
-                Matter.all
+                Matter.search(search_params)
                end
-
 
     respond_to do |f|
       f.html
@@ -84,6 +80,10 @@ class MattersController < ApplicationController
   private
   def matter_params
     params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :email, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)
+  end
+
+  def search_params
+    params.permit(:phone_num, :name) 
   end
 
   def user_check
