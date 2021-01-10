@@ -75,7 +75,7 @@ class MattersController < ApplicationController
       f.html
       f.csv do
         csv_data = Matter.download_matters_csv(@matters)
-        send_data(csv_data, filename: "(#{Date.today}).csv")
+        send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
   end

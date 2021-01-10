@@ -5,7 +5,10 @@
     <div class="matter_main_contents">
 
       <h1><span class="title">検索結果：<%= @matters.count%>件</span></h1>
-      <%= link_to "csv出力", search_matters_path(format: :csv, phone_num:params[:phone_num], name:params[:name]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
+
+      <%if @matters.present?%>
+        <%= link_to "csv出力", search_matters_path(format: :csv, phone_num:params[:phone_num], name:params[:name]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
+      <%end%>
 
       <%= render 'share/results'%>
     </div>
