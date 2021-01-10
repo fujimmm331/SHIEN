@@ -37,8 +37,9 @@ class MattersController < ApplicationController
 
     respond_to do |f|
       f.html
-      f.csv do |csv|
-        download_matter_csv(@matter)
+      f.csv do
+        csv_data = Matter.download_matter_csv(@matter)
+        send_data(csv_data, filename: "#{@matter.name}(#{Date.today}).csv")
       end
     end
   end
@@ -61,45 +62,24 @@ class MattersController < ApplicationController
 
   def search
 
-    if (params[:phone_num] == "") && (params[:name] == "")
-      @matters = Matter.all
-    elsif params[:phone_num] != ""
-      @matters = Matter.search_phone_num(params[:phone_num])
-    elsif params[:name] != ""
-      @matters = Matter.search_name(params[:name])
-    end
+    @matters = if params[:phone_num].present?
+                Matter.search_phone_num(params[:phone_num])
+               elsif params[:name].present?
+                Matter.search_name(params[:name])
+               else
+                Matter.all
+               end
+
 
     respond_to do |f|
       f.html
-      f.csv do |csv|
-        download_matters_csv(@matters)
+      f.csv do
+        csv_data = Matter.download_matters_csv(@matters)
+        send_data(csv_data, filename: "(#{Date.today}).csv")
       end
     end
   end
-
-  #show用のcsv出力
-  def download_matter_csv(matter)
-    csv_data = CSV.generate do |csv|
-      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
-      csv << columns
-      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
-      csv << values
-    end
-    send_data(csv_data, filename: "#{matter.name}(#{Date.today}).csv")
-  end
-
-  #index用のcsv出力
-  def download_matters_csv(matters)
-    csv_data = CSV.generate do |csv|
-      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
-      csv << columns
-      matters.each do |matter| 
-        values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
-        csv << values
-      end
-    end
-    send_data(csv_data, filename: "(#{Date.today}).csv")
-  end
+  
 
   private
   def matter_params

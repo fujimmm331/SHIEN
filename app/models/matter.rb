@@ -18,4 +18,26 @@ class Matter < ApplicationRecord
   def self.search_name(search)
     Matter.where('kana_sales_person LIKE (?)', "%#{search}%")
   end
+
+  #index用のcsv出力
+  def self.download_matters_csv(matters)
+    CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      matters.each do |matter| 
+        values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+        csv << values
+      end
+    end
+  end
+
+  #show用のcsv出力
+  def self.download_matter_csv(matter)
+    CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+      csv << values
+    end
+  end
 end
