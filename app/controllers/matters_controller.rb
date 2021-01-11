@@ -9,12 +9,15 @@ class MattersController < ApplicationController
   def index
     @matters = Matter.all.order(id: "DESC")
 
+    #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html
-      f.csv do |csv|
-        download_matters_csv(@matters)
+      f.csv do
+        csv_data = Matter.download_matters_csv(@matters)
+        send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
+    #/htmlを返すか、csvを返すかの処理
   end
 
   def new
@@ -35,6 +38,7 @@ class MattersController < ApplicationController
     @contact_log = ContactLog.new
     @logs = @matter.contact_logs.order(created_at: :desc).limit(4)
 
+    #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html
       f.csv do
@@ -42,6 +46,7 @@ class MattersController < ApplicationController
         send_data(csv_data, filename: "#{@matter.name}(#{Date.today}).csv")
       end
     end
+    #/htmlを返すか、csvを返すかの処理
   end
 
   def edit  
@@ -61,12 +66,15 @@ class MattersController < ApplicationController
   end
 
   def search
+    #@mattersに検索結果を代入
     @matters = if (search_params[:phone_num].present?) && (search_params[:name].present?)
                 []
                else
                 Matter.search(search_params)
                end
+    #/@mattersに検索結果を代入
 
+    #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html
       f.csv do
@@ -74,6 +82,7 @@ class MattersController < ApplicationController
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
+    #/htmlを返すか、csvを返すかの処理
   end
   
 
