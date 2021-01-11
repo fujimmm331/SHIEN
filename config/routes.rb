@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :teams, only: [:index, :new, :create]
   resources :matters do
     resources :contact_logs, only: [:index,:create]
+    collection do
+      get 'search'
+    end
   end
 
   devise_scope :user do
