@@ -207,7 +207,7 @@
 }
 
 .search_form{
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .search_label{
@@ -225,7 +225,7 @@
 
 .search_submit_btn{
   height: 40px;
-  width: 300px;
+  width: 90%;
   font-size: 16px;
   background-color:#ff9933;
   border: solid 1px #ffffff;
@@ -234,6 +234,6 @@
   text-align: center;
   cursor: pointer;
   border: solid 1px #ff9930;
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 10px 20px 0 0;
+  display: block;
 }
