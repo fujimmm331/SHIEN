@@ -67,11 +67,7 @@ class MattersController < ApplicationController
 
   def search
     #@mattersに検索結果を代入
-    @matters = if (search_params[:phone_num].present?) && (search_params[:name].present?)
-                []
-               else
-                Matter.search(search_params)
-               end
+    @matters = Matter.search(search_params)
     #/@mattersに検索結果を代入
 
     #htmlを返すか、csvを返すかの処理

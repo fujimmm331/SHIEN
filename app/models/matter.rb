@@ -15,11 +15,13 @@ class Matter < ApplicationRecord
   def self.search(params)
     case
 
-    #名前が入っていたら検索 
+    #両方値が入っていたら、空の配列を返す
+    when (params[:phone_num].present?) && (params[:name].present?)
+      []
+
     when params[:name].present?
       Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
 
-    #電話番号が入っていたら検索
     when params[:phone_num].present?
       Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%"))
 
