@@ -186,8 +186,6 @@
 }
 
 .team_main_content{
-  width: 750px;
-  height: calc(100% - 270px);
   margin-bottom: 60px;
   padding: 20px;
   border-radius: 20px;
@@ -200,7 +198,7 @@
 
 .search_form_area{
   width: 750px;
-  height: 250px;
+  height: fit-content;
   margin-bottom: 20px;
 }
 
@@ -227,7 +225,7 @@
 
 .search_submit_btn{
   height: 40px;
-  width: 100px;
+  width: 300px;
   font-size: 16px;
   background-color:#ff9933;
   border: solid 1px #ffffff;
