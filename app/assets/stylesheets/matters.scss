@@ -150,7 +150,7 @@
   font-weight: 500;
 }
 
-.matter_edit_btn{
+.matter_edit_btn,.postal_search_btn{
   padding: 3px;
   display: block;
   width: 150px;
@@ -164,10 +164,18 @@
   border: solid 1px #ff9930;
 }
 
-.matter_contactlog_btn,.matter_contactlog_btn2{
+.matter_contactlog_btn,.matter_contactlog_btn2,.postal_search_btn{
   background-color: #00cc33;
   border: solid 1px #33cc66;
   font-size: 15px;
+}
+
+.postal_search_btn{
+font-size: 14px;
+width: fit-content;
+height: fit-content;
+padding: 2px;
+margin-top: 5px;
 }
 
 .matter_csv_right{
