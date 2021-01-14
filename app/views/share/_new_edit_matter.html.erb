@@ -65,6 +65,7 @@
           </div>
           <%= f.text_field :postal_code, class:["new_form_input","p-postal-code"], autofocus: true, placeholder:"例）1001234" %>
           <div><span class="announce">※ハイフン不要です。</span></div>
+          <div><span class="announce">※入力すると住所が自動補完されます。</span></div>
         </div>
 
         <div class="field">
@@ -72,7 +73,7 @@
             <div><span class="must">必須</span></div>
             <%= f.label :municipality, "市区町村" %>
           </div>
-          <%= f.text_field :municipality, class:["new_form_input","p-region","p-locality","p-street-address","p-extended-address"],autofocus: true, placeholder:"郵便番号を入力すると自動で補完されます" %>
+          <%= f.text_field :municipality, class:["new_form_input","p-region","p-locality","p-street-address","p-extended-address"],autofocus: true, placeholder:"例）渋谷区神南" %>
         </div>
 
         <div class="field">
