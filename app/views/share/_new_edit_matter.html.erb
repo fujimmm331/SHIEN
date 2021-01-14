@@ -1,7 +1,8 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side">
-    <%= form_with model:@matter, class:"matter_new_edit_forms", local: true do |f|%>
+    <%= form_with model:@matter, class:["matter_new_edit_forms","h-adr"], local: true do |f|%>
+    <span class="p-country-name" style="display:none;">Japan</span>
     <div class="matter_new_edit_form_side">
       <h1 class="new_matter"><span class="title">新規案件作成</span></h1>
       <h4>各項目を入力し、新規案件を作成しましょう。</h4>
@@ -62,7 +63,7 @@
             <div><span class="must">必須</span></div>
             <%= f.label :postal_code, "郵便番号" %>
           </div>
-          <%= f.text_field :postal_code, class:"new_form_input", autofocus: true, placeholder:"例）1001234" %><div class="postal_search_btn", id="postal_search_btn">住所検索</div>
+          <%= f.text_field :postal_code, class:["new_form_input","p-postal-code"], autofocus: true, placeholder:"例）1001234" %>
           <div><span class="announce">※ハイフン不要です。</span></div>
         </div>
 
@@ -71,7 +72,7 @@
             <div><span class="must">必須</span></div>
             <%= f.label :municipality, "市区町村" %>
           </div>
-          <%= f.text_field :municipality, class:"new_form_input", autofocus: true, placeholder:"例）渋谷区神南" %>
+          <%= f.text_field :municipality, class:["new_form_input","p-region","p-locality","p-street-address","p-extended-address"],autofocus: true, placeholder:"郵便番号を入力すると自動で補完されます" %>
         </div>
 
         <div class="field">
