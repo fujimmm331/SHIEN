@@ -7,6 +7,12 @@
             <div class="search_label"><%= f.label :phone_num,"電話番号" %></div>
             <div><%= f.text_field :phone_num, class:"search_input", placeholder:"ハイフン不要"%></div>
           </div>
+
+          <div class="search_form">
+            <div class="search_label"><%= f.label :id,"案件ID" %></div>
+            <div><%= f.text_field :id, class:"search_input", placeholder:"例）482"%></div>
+          </div>
+
           <div class="search_form">
             <div class="search_label"><%= f.label :name,"お客様名" %></div>
             <div><%= f.text_field :name, class:"search_input", placeholder:"カタカナで入力可"%></div>

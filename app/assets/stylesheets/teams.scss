@@ -197,7 +197,7 @@
 }
 
 .search_form_area{
-  width: 750px;
+  width: fit-content;
   height: fit-content;
   margin-bottom: 20px;
 }
@@ -215,7 +215,7 @@
 }
 
 .search_input{
-  width: 300px;
+  width: 200px;
   height: 25px;
   font-size: 16px;
   border: solid 1px gray;
@@ -225,7 +225,7 @@
 
 .search_submit_btn{
   height: 40px;
-  width: 90%;
+  width: calc(100% - 20px);
   font-size: 16px;
   background-color:#ff9933;
   border: solid 1px #ffffff;
