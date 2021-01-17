@@ -72,7 +72,9 @@ class MattersController < ApplicationController
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
-      f.html
+      f.html do
+        redirect_to matter_path(@matters[0]["id"]) if @matters.count == 1
+      end
       f.csv do
         csv_data = Matter.download_matters_csv(@matters)
         send_data(csv_data, filename: "#{Date.today}.csv")
