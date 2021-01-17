@@ -90,7 +90,7 @@ class MattersController < ApplicationController
   end
 
   def search_params
-    params.permit(:phone_num, :name) 
+    params.permit(:phone_num, :id, :name) 
   end
 
   def user_check
