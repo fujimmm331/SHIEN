@@ -1,6 +1,9 @@
+     <%= form_with(url:chosed_csv_export_matters_path(format: :csv), method: :get, local: true) do |f|%>
+     <%= f.submit "選択したデータをcsv出力", class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
      <table class="matter_table_record">
         <% if @matters.present?%>
           <tr class="table_title">
+            <th><input type="checkbox" name="q1" value=></th>
             <th>案件ID</th>
             <th>案件名</th>
             <th>先方の担当者</th>
@@ -11,7 +14,9 @@
             <th>担当</th>
           </tr>
           <% @matters.each do |matter| %>
+          
           <tr class="table_records">
+            <td><%= f.check_box "id[]",{},matter.id, false%></td>
             <td><%= matter.id%></td>
             <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
             <td><%= matter.kana_sales_person%> 様</td>
@@ -27,3 +32,4 @@
           <p class="search_announce">検索条件をもう一度ご確認ください。<br>なお、電話番号・お客様名を両方入力して検索することはできません。</p>
         <% end %>
       </table>
+      <%end%>
