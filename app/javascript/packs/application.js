@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('data-confirm-modal')
 require("../checked")
+require("../allClear")
 import 'bootstrap'
 import '../src/application.scss'
 
