@@ -199,3 +199,26 @@ margin-top: 5px;
 .search_announce{
   font-size: 20px;
 }
+
+.checkbox{
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.clear_btn{
+  font-size: 15px;
+  background-color: #00cc33;
+  text-align: center;
+  color: #ffffff;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid greenyellow;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
