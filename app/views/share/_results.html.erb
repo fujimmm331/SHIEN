@@ -1,5 +1,5 @@
      <%= form_with(url:chosed_csv_export_matters_path(format: :csv), method: :get, local: true) do |f|%>
-     <%= f.submit "選択したデータをcsv出力", class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"] %>
+     <%= f.submit "選択したデータをcsv出力", class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"], data: { disable_with: false } %>
      <table class="matter_table_record">
         <% if @matters.present?%>
           <tr class="table_title">
