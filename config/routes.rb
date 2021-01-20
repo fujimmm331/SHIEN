@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :contact_logs, only: [:index,:create]
     collection do
       get 'search'
+      get 'chosed_csv_export'
     end
   end
 

@@ -17,13 +17,17 @@ class Matter < ApplicationRecord
 
     #両方値が入っていたら、空の配列を返す
     when (params[:phone_num].present?) && (params[:name].present?)
-      []
+      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%")).where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
+
+    when params[:phone_num].present?
+      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%"))
 
     when params[:name].present?
       Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
 
-    when params[:phone_num].present?
-      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%"))
+    when params[:id].present?
+      id = params[:id]
+      Matter.where(id: id)
 
     #どちらも空っぽなら全てを取得
     else

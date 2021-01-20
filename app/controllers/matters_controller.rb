@@ -67,12 +67,13 @@ class MattersController < ApplicationController
 
   def search
     #@mattersに検索結果を代入
-    @matters = Matter.search(search_params)
+    @matters = Matter.search(search_params).order(id: "DESC")
     #/@mattersに検索結果を代入
-
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
-      f.html
+      f.html do
+        redirect_to matter_path(@matters[0]["id"]) if @matters.count == 1
+      end
       f.csv do
         csv_data = Matter.download_matters_csv(@matters)
         send_data(csv_data, filename: "#{Date.today}.csv")
@@ -81,6 +82,23 @@ class MattersController < ApplicationController
     #/htmlを返すか、csvを返すかの処理
   end
   
+  def chosed_csv_export
+    @matters = []
+    params[:id].each do |id|
+      matter = Matter.where(id: id)
+      matter.each do |m|
+        @matters << m
+      end
+    end
+
+    respond_to do |f|
+      f.html
+      f.csv do
+        csv_data = Matter.download_matters_csv(@matters)
+        send_data(csv_data, filename: "#{Date.today}.csv")
+      end
+    end
+  end
 
   private
   def matter_params
@@ -88,8 +106,10 @@ class MattersController < ApplicationController
   end
 
   def search_params
-    params.permit(:phone_num, :name) 
+    params.permit(:phone_num, :id, :name) 
   end
+
+
 
   def user_check
     if current_user.id != @matter.user.id
