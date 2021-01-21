@@ -39,8 +39,7 @@ https://github.com/nyappy15ch/SHIEN
 ### インフラ
 - AWS(EC2,Route53)
 - Capistrano
-![SHIEN_cloud構成図](https://user-images.githubusercontent.com/69615045/105363717-b25bfc80-5c3f-11eb-968e-ad7d3514d6ea.png)
-
+![SHIEN_cloud構成図](https://user-images.githubusercontent.com/69615045/105365464-a07b5900-5c41-11eb-85da-ae79041fd19c.png)
 
 ### Webサーバー
 - nginx
