@@ -1,7 +1,5 @@
 # SHIENについて
-
 <img width="1438" alt="スクリーンショット 2021-01-22 0 53 21" src="https://user-images.githubusercontent.com/69615045/105375733-5055c400-5c4c-11eb-95d8-9da1aa60ac48.png">
-
 SHIENは案件管理を行えるCRMツールです！
 案件を登録したり、登録したデータをcsv出力することできます。
 
