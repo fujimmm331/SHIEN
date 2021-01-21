@@ -1,24 +1,123 @@
-# README
+# SHIENについて
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SHIENは案件管理を行えるCRMツールです！
+案件を登録したり、登録したデータをcsv出力することできます。
 
-Things you may want to cover:
+主要な機能は以下の通りです。
+- csv出力機能
+- 通知機能
+- 案件管理機能
+- 案件検索機能
+- ユーザー管理機能
+- チーム作成機能
 
-* Ruby version
+# URL
+URL
+http://www.sh1en.com/
 
-* System dependencies
+basic認証
+ ID:sh1en
+ PW:sh1en
 
-* Configuration
+github
+https://github.com/nyappy15ch/SHIEN
 
-* Database creation
+# 使用技術
 
-* Database initialization
+### サーバーサイド
+- Ruby(2.6.5)
+- RubyOnRails(6.0.0)
 
-* How to run the test suite
+### フロントサイド
+- Javascript
+- bootstrap
+- YubinBango(郵便番号から住所を自動保管するライブラリ)
 
-* Services (job queues, cache servers, search engines, etc.)
+### DB
+- MySQL
 
-* Deployment instructions
+### インフラ
+- AWS(EC2,Route53)
+- Capistrano
 
-* ...
+### Webサーバー
+- nginx
+
+### Appサーバー
+- unicorn
+
+### 本番DB
+- MariaDB
+
+# 注力した点
+
+**検索結果をcsv出力できるようにしました**
+
+検索した結果全てを、csv出力できるようにしました。
+
+検索結果を出力したい時があると考え、実装しました。
+
+**検索結果から任意のデータをcsv出力できるようにしました**
+
+チェックボックスを用意し、チェックが入った結果のみ
+csv出力できるようにしました。
+
+DBから任意のデータを取り出しやすくするために実装しました。
+
+**ワンクリックで、チェックを全て外せるようにしました**
+
+ボタンをクリックすれば、チェックを全て外せるようにしました。
+
+複数チェックした時、解除する手間があると考え実装しました。
+
+**検索結果が1件だった時、詳細ページへ遷移するようにしました**
+
+検索結果が1件だけの時、詳細ページへ遷移します。
+ユーザーがクリックする手間を省くために実装しました。
+
+**郵便番号から住所を自動で補完する機能をつけました**
+
+郵便番号を入力するだけで、住所が補完されるようにしました。
+案件登録は入力項目が多いので、手間を省くために実装しました。
+
+**通知に既読機能をつけ、未読のものをわかりやすくしました**
+
+JSを使って、未読の通知は色が変わるようにしました。
+ユーザーが対応漏れを防ぐために実装しました。
+
+
+# 苦労した点・そこから学んだこと
+機能を実装する際、やり方ばかりみてしまう癖に苦労しました。
+
+そして、「どうしたら自分の意図した状態になるか？」ということを常に考えることを学びました。
+
+検索結果から任意のデータを出力する機能は
+実装方法がわかりませんでした。
+
+Googleなどで検索しても、実装方法がなく
+やり方がわかりませんでした。
+
+自分はやり方ばかりを求めていることに気づきました。
+
+そこから、どうしたら自分の意図した状態になるだろうか？
+と考えるようになりました。
+
+その結果、まずは自分なりに考えて実装してみる
+という癖がつきました。
+
+# 今後実装予定の機能
+
+- TwitterAPIを使用し、トレンドを表示させる
+
+- 非同期通信で通知を表示
+
+
+### About Me
+
+藤村和弥 24歳 3月31日生まれです。
+
+以前は、自動車ディーラーで営業として働いていました。
+現在は、データセンターでオペレーターとして働いています。
+
+SNS
+[Twitter](https://twitter.com/Fujimmm_331) [Qita](https://qiita.com/nyappy15th)
