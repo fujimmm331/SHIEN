@@ -133,6 +133,9 @@ Googleなどで検索しても、実装方法がなく
 - 非同期通信で通知を表示
 
 
+
+
+
 ### About Me
 
 藤村和弥 24歳 3月31日生まれです。
@@ -141,5 +144,4 @@ Googleなどで検索しても、実装方法がなく
 現在は、データセンターでオペレーターとして働いています。
 
 ### SNS
-[Twitter](https://twitter.com/Fujimmm_331) <br>
-[Qita](https://qiita.com/nyappy15th)
+**[Twitter](https://twitter.com/Fujimmm_331)** **[Qita](https://qiita.com/nyappy15th)**
