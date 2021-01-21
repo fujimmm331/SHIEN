@@ -57,7 +57,7 @@ https://github.com/nyappy15ch/SHIEN
 検索した結果全てを、csv出力できるようにしました。<br>
 検索結果を出力したい時があると考え、実装しました。
 
-![任意のデータを出力](https://user-images.githubusercontent.com/69615045/105370214-b2132f80-5c46-11eb-8ef2-fc37311b2055.gif)
+![検索結果の出力](https://user-images.githubusercontent.com/69615045/105373845-6febed00-5c4a-11eb-85f3-443be59c21cb.gif)
 
 
 
@@ -66,7 +66,7 @@ https://github.com/nyappy15ch/SHIEN
 チェックボックスを用意し、チェックが入った結果のみcsv出力できるようにしました。<br>
 DBから任意のデータを取り出しやすくするために実装しました。
 
-![検索結果を出力](https://user-images.githubusercontent.com/69615045/105370808-4f6e6380-5c47-11eb-91c2-c94b88f39d24.gif)
+![任意のデータを出力](https://user-images.githubusercontent.com/69615045/105370214-b2132f80-5c46-11eb-8ef2-fc37311b2055.gif)
 
 
 
@@ -93,7 +93,7 @@ DBから任意のデータを取り出しやすくするために実装しまし
 郵便番号を入力するだけで、住所が補完されるようにしました。<br>
 案件登録は入力項目が多いので、手間を省くために実装しました。
 
-![住所自動保管](https://user-images.githubusercontent.com/69615045/105373022-9198a480-5c49-11eb-9720-18775167455b.gif)
+![住所自動保管](https://user-images.githubusercontent.com/69615045/105374404-07e9d680-5c4b-11eb-9388-eec3a9e408e0.gif)
 
 
 
@@ -140,5 +140,6 @@ Googleなどで検索しても、実装方法がなく
 以前は、自動車ディーラーで営業として働いていました。
 現在は、データセンターでオペレーターとして働いています。
 
-SNS
-[Twitter](https://twitter.com/Fujimmm_331) [Qita](https://qiita.com/nyappy15th)
+### SNS
+[Twitter](https://twitter.com/Fujimmm_331) <br>
+[Qita](https://qiita.com/nyappy15th)
