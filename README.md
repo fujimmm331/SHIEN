@@ -16,9 +16,9 @@ SHIENは案件管理を行えるCRMツールです！<br>
 URL
 http://www.sh1en.com/
 
-basic認証
- ID:sh1en
- PW:sh1en
+basic認証<br>
+ ID:sh1en<br>
+ PW:sh1en<br>
 
 github
 https://github.com/nyappy15ch/SHIEN
