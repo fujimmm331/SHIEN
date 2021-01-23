@@ -26,8 +26,18 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def new_guest
-    user = User.guest
+    id = guest_params[:id].to_i
+    user = case id
+           when 1
+             User.guest1
+           when 2
+             User.guest2
+           end
     sign_in user
     redirect_to root_path
+  end
+
+  def guest_params
+    params.permit(:id)
   end
 end
