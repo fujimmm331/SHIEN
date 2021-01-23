@@ -19,9 +19,17 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   # 簡単ログイン用のユーザー情報
-  def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = "ゲストユーザー"
+  def self.guest1
+    find_or_create_by!(email: 'guest1@example.com') do |user|
+      user.name = "ゲストユーザー1"
+      user.password = SecureRandom.hex(10)
+      user.team_id = 1
+    end
+  end
+
+  def self.guest2
+    find_or_create_by!(email: 'guest2@example.com') do |user|
+      user.name = "ゲストユーザー2"
       user.password = SecureRandom.hex(10)
       user.team_id = 1
     end

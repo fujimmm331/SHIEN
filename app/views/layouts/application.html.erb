@@ -20,7 +20,8 @@
         <div class="user_name">こんにちは、<%= current_user.name%>さん</div>
         <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"signin_btn"%></div>
         <% else %>
-        <div><%= link_to "簡単ログイン", users_guest_sign_in_path, method: :post, class:["signin_btn", "easy_signin_btn"]%></div>
+        <div><%= link_to "ゲストログイン1", users_guest_sign_in_path(id: 1), method: :post, class:["signin_btn", "easy_signin_btn"]%></div>
+        <div><%= link_to "ゲストログイン2", users_guest_sign_in_path(id: 2), method: :post, class:["signin_btn", "easy_signin_btn"]%></div>
         <div><%= link_to "ログイン", new_user_session_path, class:"signin_btn"%></div>
         <% end %>
       </div>
