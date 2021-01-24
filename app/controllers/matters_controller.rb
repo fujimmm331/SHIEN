@@ -7,7 +7,7 @@ class MattersController < ApplicationController
   before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
-    @matters = Matter.all.order(id: "DESC")
+    @matters = Matter.includes(:user).order(id: "DESC")
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
