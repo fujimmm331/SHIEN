@@ -2,6 +2,7 @@ Team.create(name:"サンプル第1支店")
 
 User.create(name:"ゲストユーザー1", email:"guest1@example.com", password:SecureRandom.hex(10), team_id:1)
 User.create(name:"ゲストユーザー2", email:"guest2@example.com", password:SecureRandom.hex(10), team_id:1)
+User.create(name:"開発者アカウント", email:"fujimura@kazuya.com", password:"fuj1mura", team_id:1)
 
 
 
