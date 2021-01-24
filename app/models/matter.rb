@@ -20,10 +20,10 @@ class Matter < ApplicationRecord
       Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%")).where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
 
     when params[:phone_num].present?
-      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%"))
+      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%")).includes(:user)
 
     when params[:name].present?
-      Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
+      Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%").includes(:user)
 
     when params[:id].present?
       id = params[:id]
@@ -31,7 +31,7 @@ class Matter < ApplicationRecord
 
     #どちらも空っぽなら全てを取得
     else
-      Matter.all
+      Matter.includes(:user)
     end
   end
 
