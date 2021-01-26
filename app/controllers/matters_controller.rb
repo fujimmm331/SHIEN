@@ -85,10 +85,8 @@ class MattersController < ApplicationController
   def chosed_csv_export
     @matters = []
     params[:id].each do |id|
-      matter = Matter.where(id: id)
-      matter.each do |m|
-        @matters << m
-      end
+      matter = Matter.find(id)
+      @matters << matter
     end
 
     respond_to do |f|
