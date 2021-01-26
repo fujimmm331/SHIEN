@@ -112,9 +112,7 @@ class MattersController < ApplicationController
 
 
   def user_check
-    if current_user.id != @matter.user.id
-      redirect_to matter_path(@matter.id)
-    end
+    redirect_to matter_path(@matter.id) if current_user.id != @matter.user.id
   end
 
   def find_matter
