@@ -83,11 +83,13 @@ class MattersController < ApplicationController
   end
   
   def chosed_csv_export
+    # パラメータからidを取り出し、レコードを取得
     @matters = []
     params[:id].each do |id|
       matter = Matter.find(id)
       @matters << matter
     end
+    # /パラメータからidを取り出し、レコードを取得
 
     respond_to do |f|
       f.html
