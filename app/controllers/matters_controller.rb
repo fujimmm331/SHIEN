@@ -83,13 +83,13 @@ class MattersController < ApplicationController
   end
   
   def chosed_csv_export
+    # パラメータからidを取り出し、レコードを取得
     @matters = []
     params[:id].each do |id|
-      matter = Matter.where(id: id)
-      matter.each do |m|
-        @matters << m
-      end
+      matter = Matter.find(id)
+      @matters << matter
     end
+    # /パラメータからidを取り出し、レコードを取得
 
     respond_to do |f|
       f.html
@@ -112,9 +112,7 @@ class MattersController < ApplicationController
 
 
   def user_check
-    if current_user.id != @matter.user.id
-      redirect_to matter_path(@matter.id)
-    end
+    redirect_to matter_path(@matter.id) if current_user.id != @matter.user.id
   end
 
   def find_matter
