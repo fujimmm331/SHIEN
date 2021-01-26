@@ -41,7 +41,7 @@ class Matter < ApplicationRecord
       columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
       csv << columns
       matters.each do |matter| 
-        values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+        values = %W(#{matter.id} #{matter.name} #{matter.sales_person} #{matter.kana_sales_person} #{matter.email} '#{matter.phone_number}' '#{matter.cell_phone_number}' #{matter.postal_code} #{matter.municipality}#{matter.address}#{matter.building})
         csv << values
       end
     end
