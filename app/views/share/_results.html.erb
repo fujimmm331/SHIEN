@@ -1,4 +1,20 @@
     <%= form_with(url:chosed_csv_export_matters_path(format: :csv), method: :get, local: true) do |f|%>
+    <div class="select_columns_area">
+      <div>出力するデータを指定する</div>
+      <div class="select_columns">
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"id", false%>案件ID</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"name", false%>案件名</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"sales_person", false%>先方の担当者</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"kana_sales_person", false%>先方の担当者(フリガナ)</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"email", false%>メールアドレス</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"phone_number", false%>電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"cell_phone_number", false%>携帯電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"postal_code", false%>郵便番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"municipality", false%>市区町村</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"address", false%>番地</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox"},"building", false%>建物名</div>
+      </div>
+    </div>
     <%if @matters.present?%>
       <%= link_to "csv出力", search_matters_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
       <%= f.submit "選択したデータをcsv出力", class:"chosed_csv_export_btn",id:"chosed_csv_export_btn", data: { disable_with: false } %>
