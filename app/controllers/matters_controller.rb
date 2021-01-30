@@ -86,7 +86,15 @@ class MattersController < ApplicationController
     # パラメータからidを取り出し、レコードを取得
     @matters = []
     params[:id].each do |id|
-      matter = Matter.find(id)
+
+      # カラム指定の有無により、取得するレコードを分ける
+      matter = if params[:colmun].present?
+                 Matter.get_record_with_selected_column(params[:colmun], id) #有の場合の処理
+               else
+                 Matter.find(id) #無の場合の処理
+               end
+      # /カラム指定の有無により、取得するレコードを分ける
+
       @matters << matter
     end
     # /パラメータからidを取り出し、レコードを取得
@@ -94,7 +102,14 @@ class MattersController < ApplicationController
     respond_to do |f|
       f.html
       f.csv do
-        csv_data = Matter.download_matters_csv(@matters)
+        # カラム指定の有無により、メソッドをわける
+        csv_data = if params[:colmun].present?
+                     Matter.download_matters_csv_with_colmuns(@matters, params[:colmun])
+                   else
+                     Matter.download_matters_csv(@matters)
+                   end
+        # /カラム指定の有無により、メソッドを分ける
+
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end

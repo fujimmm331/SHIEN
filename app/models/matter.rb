@@ -40,6 +40,16 @@ class Matter < ApplicationRecord
     Matter.select(params).find(id)
   end
 
+  #show用のcsv出力
+  def self.download_matter_csv(matter)
+    CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
+      csv << values
+    end
+  end
+
   #index用のcsv出力
   def self.download_matters_csv(matters)
     CSV.generate do |csv|
@@ -52,13 +62,22 @@ class Matter < ApplicationRecord
     end
   end
 
-  #show用のcsv出力
-  def self.download_matter_csv(matter)
+  # カラムを指定してcsv出力
+  def self.download_matters_csv_with_colmuns(matters, columns)
     CSV.generate do |csv|
-      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
-      csv << columns
-      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
-      csv << values
+      csv << columns #csvファイルのカラムを入れる
+
+      # 選択したカラムからレコードを入れる処理
+      matters.each do |matter|
+        values = []
+        columns.each do |column|
+          value = matter[column]
+          values << value
+        end
+        csv << values
+      end
+      # /選択したカラムからレコードを入れる処理
     end
   end
+
 end
