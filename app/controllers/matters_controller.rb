@@ -83,21 +83,12 @@ class MattersController < ApplicationController
   end
   
   def chosed_csv_export
-    # パラメータからidを取り出し、レコードを取得
-    @matters = []
-    params[:id].each do |id|
-
-      # カラム指定の有無により、取得するレコードを分ける
-      matter = if params[:colmun].present?
-                 Matter.get_record_with_selected_column(params[:colmun], id) #有の場合の処理
+    # 出力するレコードを取得
+    @matters = if params[:colmun].present?
+                 Matter.select(params[:colmun]).where(id: params[:id]).order(id: "DESC") #カラム指定有の場合
                else
-                 Matter.find(id) #無の場合の処理
+                 Matter.where(id: params[:id]).order(id: "DESC") #無の場合
                end
-      # /カラム指定の有無により、取得するレコードを分ける
-
-      @matters << matter
-    end
-    # /パラメータからidを取り出し、レコードを取得
 
     respond_to do |f|
       f.html

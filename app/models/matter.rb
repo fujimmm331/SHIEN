@@ -43,10 +43,6 @@ class Matter < ApplicationRecord
   end
 
 
-  def self.get_record_with_selected_column(params, id)
-    Matter.select(params).find(id)
-  end
-
   #show用のcsv出力
   def self.download_matter_csv(matter)
     CSV.generate do |csv|
