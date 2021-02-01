@@ -150,4 +150,4 @@ rootページには簡易検索機能を設け、すぐに検索できるよう�
 現在は、データセンターでオペレーターとして働いています。
 
 ### SNS
-**[Twitter](https://twitter.com/Fujimmm_331)** **[Qiita](https://qiita.com/nyappy15th)**
+**[Twitter](https://twitter.com/Fujimmm_331)** **[Qiita](https://qiita.com/nyappy15th)** **[Wantedly](https://www.wantedly.com/id/Fujimmm331)**
