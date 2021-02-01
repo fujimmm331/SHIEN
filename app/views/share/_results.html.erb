@@ -1,4 +1,20 @@
     <%= form_with(url:chosed_csv_export_matters_path(format: :csv), method: :get, local: true) do |f|%>
+    <div class="select_columns_area">
+      <div>出力するデータを指定する</div>
+      <div class="select_columns">
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"id", false%>案件ID</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"name", false%>案件名</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"sales_person", false%>先方の担当者</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"kana_sales_person", false%>先方の担当者(フリガナ)</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"email", false%>メールアドレス</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"phone_number", false%>電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"cell_phone_number", false%>携帯電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"postal_code", false%>郵便番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"municipality", false%>市区町村</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"address", false%>番地</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"building", false%>建物名</div>
+      </div>
+    </div>
     <%if @matters.present?%>
       <%= link_to "csv出力", search_matters_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
       <%= f.submit "選択したデータをcsv出力", class:"chosed_csv_export_btn",id:"chosed_csv_export_btn", data: { disable_with: false } %>
@@ -17,7 +33,7 @@
           <% @matters.each do |matter| %>
           
           <tr class="table_records">
-            <td><%= f.check_box "id[]",{class:"checkbox"},matter.id, false%></td>
+            <td><%= f.check_box "id[]",{class:"checkbox",checked: true},matter.id, false%></td>
             <td><%= matter.id%></td>
             <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
             <td><%= matter.kana_sales_person%> 様</td>
@@ -28,7 +44,7 @@
           <% end %>
         <% else %>
           <p class="search_announce">案件はありません</p>
-          <p class="search_announce">検索条件をもう一度ご確認ください。<br>なお、電話番号・お客様名を両方入力して検索することはできません。</p>
+          <p class="search_announce">検索条件をもう一度ご確認ください。
         <% end %>
       </table>
       <%end%>

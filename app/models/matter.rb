@@ -13,25 +13,43 @@ class Matter < ApplicationRecord
 
 
   def self.search(params)
+
+    phone_num = params[:phone_num] #電話番号
+    sales_person = params[:name] #お客様名
+    matter_id = params[:id] #案件ID
+
     case
+    
+    #電話番号、ID、お客様名に値がある or 電話番号、お客様名に値がある
+    when ((phone_num.present?) && (matter_id.present?) && (sales_person.present?)) || (phone_num.present? && sales_person.present?)
+      Matter.where("phone_number LIKE ? OR cell_phone_number LIKE ? ","%#{phone_num}%","%#{phone_num}%").where("kana_sales_person LIKE ?","%#{sales_person}%").includes(:user)
 
-    #両方値が入っていたら、空の配列を返す
-    when (params[:phone_num].present?) && (params[:name].present?)
-      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%")).where('kana_sales_person LIKE (?)', "%#{params[:name]}%")
+    #電話番号に値がある or 電話番号、IDに値がある
+    when (phone_num.present?) || (phone_num.present? && matter_id.present?)
+      Matter.where("phone_number LIKE ? OR cell_phone_number LIKE ?","%#{phone_num}%","%#{phone_num}%").includes(:user)
+    
+    #お客様名に値がある or お客様名、IDに値がある
+    when (sales_person.present?) || (sales_person.present? && (matter_id.present?))
+      Matter.where('kana_sales_person LIKE (?)', "%#{sales_person}%").includes(:user)
 
-    when params[:phone_num].present?
-      Matter.where('phone_number LIKE (?)', "%#{params[:phone_num]}%").or(Matter.where('cell_phone_number LIKE (?)', "%#{params[:phone_num]}%")).includes(:user)
+    #IDに値がある
+    when matter_id.present?
+      Matter.where(id: matter_id)
 
-    when params[:name].present?
-      Matter.where('kana_sales_person LIKE (?)', "%#{params[:name]}%").includes(:user)
-
-    when params[:id].present?
-      id = params[:id]
-      Matter.where(id: id)
-
-    #どちらも空っぽなら全てを取得
+    #全て空の時
     else
       Matter.includes(:user)
+    end
+  end
+
+
+  #show用のcsv出力
+  def self.download_matter_csv(matter)
+    CSV.generate do |csv|
+      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
+      csv << columns
+      values = %W(#{matter.id} #{matter.name} #{matter.sales_person} #{matter.kana_sales_person} #{matter.email} '#{matter.phone_number}' '#{matter.cell_phone_number}' #{matter.postal_code} #{matter.municipality}#{matter.address}#{matter.building})
+      csv << values
     end
   end
 
@@ -47,13 +65,22 @@ class Matter < ApplicationRecord
     end
   end
 
-  #show用のcsv出力
-  def self.download_matter_csv(matter)
+  # カラムを指定してcsv出力
+  def self.download_matters_csv_with_colmuns(matters, columns)
     CSV.generate do |csv|
-      columns = %w(id 案件名 担当者 フリガナ Email 電話番号 携帯電話番号 郵便番号 住所)
-      csv << columns
-      values = ["#{matter.id}", "#{matter.name}", "#{matter.sales_person}", "#{matter.kana_sales_person}", "#{matter.email}", "#{matter.phone_number}", "#{matter.cell_phone_number}", "#{matter.postal_code}", "#{matter.municipality}#{matter.address}#{matter.building}"]
-      csv << values
+      csv << columns #csvファイルのカラムを入れる
+
+      # 選択したカラムからレコードを入れる処理
+      matters.each do |matter|
+        values = []
+        columns.each do |column|
+          value = matter[column]
+          values << value
+        end
+        csv << values
+      end
+      # /選択したカラムからレコードを入れる処理
     end
   end
+
 end
