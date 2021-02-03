@@ -4,39 +4,43 @@
     <div class="left_area">
       <%# 案件詳細を表示 %>
       <div class="matter_info">
-        <h2 class="new_matter"><span class="title"><%= @matter.name%></span></h2>
+        <h2 class="new_matter"><span class="title">顧客情報</span></h2>
 
         <div class="field">
-          <div class="matter_title">先方のご担当者：</div>
-          <span class="matter_text"><%= @matter.sales_person%> / <%= @matter.kana_sales_person%> 様</span>
+          <div class="matter_title">お客様名：</div>
+          <span class="matter_text"><%= @customer.name%> / <%= @customer.kana_name%> 様</span>
         </div>
 
         <div class="field">
           <div class="matter_title">電話番号：</div>
-          <span class="matter_text"><%= @matter.phone_number%></span>
+          <span class="matter_text"><%= @customer.phone_number%></span>
           <div class="matter_title">携帯電話：</div>
-          <span class="matter_text"><%= @matter.cell_phone_number%></span>
+          <span class="matter_text"><%= @customer.cell_phone_number%></span>
+          <div class="matter_title">email：</div>
+          <span class="matter_text"><%= @customer.email%></span>
         </div>
 
         <div class="field">
           <div class="matter_title">住所：</div>
-          <span class="matter_text"><%= @matter.postal_code%></span>
-          <div><span class="matter_text"><%= @matter.municipality%><%= @matter.address%><%= @matter.building%></span></div>
+          <span class="matter_text"><%= @customer.postal_code%></span>
+          <div><span class="matter_text"><%= @customer.municipality%><%= @customer.address%><%= @customer.building%></span></div>
         </div>
 
         <div class="field">
           <div>担当者：</div>
-          <%= @matter.user.team.name%><br>
-          <%= @matter.user.name%>
+          <%= @customer.user.team.name%><br>
+          <%= @customer.user.name%>
         </div>
 
         <div class="matter_btn_area">
-          <%= link_to "コンタクトログ一覧", matter_contact_logs_path(@matter.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
-          <% if @matter.user.id == current_user.id%><%= link_to "編集する", edit_matter_path(@matter.id), class:"matter_edit_btn" %><%end%>
-          <% if @matter.user.id == current_user.id%><%= link_to "削除する", matter_path(@matter.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %><%end%>
+          <%= link_to "コンタクトログ一覧", customer_contact_logs_path(@customer.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <% if @customer.user.id == current_user.id%>
+            <%= link_to "編集する", edit_customer_path(@customer.id), class:"matter_edit_btn" %>
+            <%= link_to "削除する", customer_path(@customer.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %>
+          <%end%>
         </div>
         <div class="matter_btn_area">
-          <%= link_to "csv出力", matter_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <%= link_to "csv出力", customer_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn"] %>
         </div>
       </div>
       <%# /案件詳細を表示 %>
@@ -47,7 +51,7 @@
          <%# コンタクトログ入力フォームを表示 %>
       <div class="contact_log_area">
         <h5><span class="title">コンタクトログを残す</span></h5>
-        <%= form_with model:[@matter, @contact_log], local: true do |f|%>
+        <%= form_with model:[@customer, @contact_log], local: true do |f|%>
         <div class="contact_log_box_side">
           <%= f.label :status, "対応あり", class:"contact_action_required_box"%>
           <%= f.check_box :status, {class:"contact_action_required_box"}, "要対応", nil%>
