@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'notifications/:id', to: 'notifications#checked'
 
   resources :teams, only: [:index, :new, :create]
-  resources :matters do
+  resources :customers do
     resources :contact_logs, only: [:index,:create]
     collection do
       get 'search'
