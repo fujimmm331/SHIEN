@@ -1,19 +1,19 @@
 require 'csv'
 require 'date'
 
-class MattersController < ApplicationController
+class CustomersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_matter, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
-    @matters = Matter.includes(:user).order(id: "DESC")
+    @customers = Customer.includes(:user).order(id: "DESC")
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html
       f.csv do
-        csv_data = Matter.download_matters_csv(@matters)
+        csv_data = Customer.download_matters_csv(@matters)
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
@@ -21,13 +21,13 @@ class MattersController < ApplicationController
   end
 
   def new
-    @matter = Matter.new
+    @customer = Customer.new
   end
   
   def create
-    @matter = Matter.new(matter_params)
-    if @matter.valid?
-      @matter.save
+    @customer = Customer.new(customer_params)
+    if @customer.valid?
+      @customer.save
       redirect_to matter_path(@matter.id)
     else
       render :new
@@ -36,14 +36,14 @@ class MattersController < ApplicationController
 
   def show
     @contact_log = ContactLog.new
-    @logs = @matter.contact_logs.order(created_at: :desc).limit(4)
+    @logs = @customer.contact_logs.order(created_at: :desc).limit(4)
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html
       f.csv do
-        csv_data = Matter.download_matter_csv(@matter)
-        send_data(csv_data, filename: "#{@matter.name}(#{Date.today}).csv")
+        csv_data = Customer.download_matter_csv(@customer)
+        send_data(csv_data, filename: "#{@customer.name}(#{Date.today}).csv")
       end
     end
     #/htmlを返すか、csvを返すかの処理
@@ -53,29 +53,29 @@ class MattersController < ApplicationController
   end
 
   def update
-    if @matter.update(matter_params)
-      redirect_to matter_path(@matter.id)
+    if @customer.update(customer_params)
+      redirect_to matter_path(@customer.id)
     else
       render :edit
     end
   end
 
   def destroy
-    @matter.destroy
+    @customer.destroy
     redirect_to root_path
   end
 
   def search
     #@mattersに検索結果を代入
-    @matters = Matter.search(search_params).order(id: "DESC")
+    @customers = Customer.search(search_params).order(id: "DESC")
     #/@mattersに検索結果を代入
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html do
-        redirect_to matter_path(@matters[0]["id"]) if @matters.count == 1
+        redirect_to matter_path(@customers[0]["id"]) if @customers.count == 1
       end
       f.csv do
-        csv_data = Matter.download_matters_csv(@matters)
+        csv_data = Matter.download_matters_csv(@customers)
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
@@ -84,10 +84,10 @@ class MattersController < ApplicationController
   
   def chosed_csv_export
     # 出力するレコードを取得
-    @matters = if params[:colmun].present?
-                 Matter.select(params[:colmun]).where(id: params[:id]).order(id: "DESC") #カラム指定有の場合
+    @customers = if params[:colmun].present?
+                Customer.select(params[:colmun]).where(id: params[:id]).order(id: "DESC") #カラム指定有の場合
                else
-                 Matter.where(id: params[:id]).order(id: "DESC") #無の場合
+                Customer.where(id: params[:id]).order(id: "DESC") #無の場合
                end
 
     respond_to do |f|
@@ -95,9 +95,9 @@ class MattersController < ApplicationController
       f.csv do
         # カラム指定の有無により、メソッドをわける
         csv_data = if params[:colmun].present?
-                     Matter.download_matters_csv_with_colmuns(@matters, params[:colmun])
+                     Customer.download_matters_csv_with_colmuns(@customers, params[:colmun])
                    else
-                     Matter.download_matters_csv(@matters)
+                     Customer.download_matters_csv(@customers)
                    end
         # /カラム指定の有無により、メソッドを分ける
 
@@ -107,8 +107,8 @@ class MattersController < ApplicationController
   end
 
   private
-  def matter_params
-    params.require(:matter).permit(:name, :sales_person, :kana_sales_person, :email, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building).merge(user_id: current_user.id, team_id:current_user.team.id)
+  def customer_params
+    params.require(:customer).permit(:name, :kana_name, :email, :phone_number, :cell_phone_number, :postal_code, :municipality, :address, :building, :hobby, :memo).merge(user_id: current_user.id, team_id:current_user.team.id)
   end
 
   def search_params
