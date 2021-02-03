@@ -3,7 +3,7 @@ require 'date'
 
 class CustomersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_matter, only: [:show, :edit, :update, :destroy]
+  before_action :find_customer, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
@@ -118,10 +118,10 @@ class CustomersController < ApplicationController
 
 
   def user_check
-    redirect_to matter_path(@matter.id) if current_user.id != @matter.user.id
+    redirect_to customer_path(@customer.id) if current_user.id != @customer.user.id
   end
 
-  def find_matter
-    @matter = Matter.find(params[:id])
+  def find_customer
+    @customer = Customer.find(params[:id])
   end
 end
