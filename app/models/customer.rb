@@ -1,4 +1,4 @@
-class Matter < ApplicationRecord
+class Customer < ApplicationRecord
   has_many :contact_logs, dependent: :destroy
   has_many :notifications, dependent: :destroy
   belongs_to :team
