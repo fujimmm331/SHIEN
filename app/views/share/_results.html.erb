@@ -1,4 +1,4 @@
-    <%= form_with(url:chosed_csv_export_matters_path(format: :csv), method: :get, local: true) do |f|%>
+    <%= form_with(url:chosed_csv_export_customers_path(format: :csv), method: :get, local: true) do |f|%>
     <div class="select_columns_area">
       <div>出力するデータを指定する</div>
       <div class="select_columns">
@@ -15,12 +15,12 @@
         <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"building", false%>建物名</div>
       </div>
     </div>
-    <%if @matters.present?%>
-      <%= link_to "csv出力", search_matters_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
+    <%if @customers.present?%>
+      <%= link_to "csv出力", search_customers_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
       <%= f.submit "選択したデータをcsv出力", class:"chosed_csv_export_btn",id:"chosed_csv_export_btn", data: { disable_with: false } %>
     <%end%>
      <table class="matter_table_record">
-        <% if @matters.present?%>
+        <% if @customers.present?%>
           <tr class="table_title">
             <th><span class="clear_btn" id="clear_btn">チェックを外す</span></th>
             <th>案件ID</th>
@@ -30,16 +30,16 @@
             <th>携帯電話番号</th>
             <th>担当</th>
           </tr>
-          <% @matters.each do |matter| %>
+          <% @customers.each do |customer| %>
           
           <tr class="table_records">
-            <td><%= f.check_box "id[]",{class:"checkbox",checked: true},matter.id, false%></td>
-            <td><%= matter.id%></td>
-            <td><%= link_to matter.name,matter_path(matter.id) , class:"table_record"%></td>
-            <td><%= matter.kana_sales_person%> 様</td>
-            <td><%= matter.phone_number%></td>
-            <td><%= matter.cell_phone_number%></td>
-            <td><%= matter.user.name%></td>
+            <td><%= f.check_box "id[]",{class:"checkbox",checked: true},customer.id, false%></td>
+            <td><%= customer.id%></td>
+            <td><%= link_to customer.name,customer_path(customer.id) , class:"table_record"%></td>
+            <td><%= customer.kana_name%> 様</td>
+            <td><%= customer.phone_number%></td>
+            <td><%= customer.cell_phone_number%></td>
+            <td><%= customer.user.name%></td>
           </tr>
           <% end %>
         <% else %>
