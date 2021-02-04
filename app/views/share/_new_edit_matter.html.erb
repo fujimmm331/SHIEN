@@ -1,40 +1,32 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side">
-    <%= form_with model:@matter, class:["matter_new_edit_forms","h-adr"], local: true do |f|%>
+    <%= form_with model:@customer, class:["matter_new_edit_forms","h-adr"], local: true do |f|%>
     <span class="p-country-name" style="display:none;">Japan</span>
     <div class="matter_new_edit_form_side">
-      <h1 class="new_matter"><span class="title">新規案件作成</span></h1>
+      <h1 class="new_matter"><span class="title">新規顧客作成</span></h1>
       <h4>各項目を入力し、新規案件を作成しましょう。</h4>
     
         <div class="field">
           <div class="colmun">
             <div><span class="must">必須</span></div>
-            <%= f.label :name, "案件名" %>
+            <%= f.label :name, "お客様名" %>
           </div>
           <%= f.text_field :name, class:"new_form_input", autofocus: true %>
-        </div>
-
-        <div class="field">
-          <div class="colmun">
-            <div><span class="must">必須</span></div>
-            <%= f.label :sales_person, "先方の担当者" %>
-          </div>
-          <%= f.text_field :sales_person, class:"new_form_input", autofocus: true, placeholder:"例）田中太郎" %>
         </div>
 
         <div class="with_announce">
           <div class="colmun">
             <div><span class="must">必須</span></div>
-            <%= f.label :kana_sales_person, "フリガナ" %>
+            <%= f.label :kana_name, "フリガナ" %>
           </div>
-          <%= f.text_field :kana_sales_person, class:"new_form_input", autofocus: true, placeholder:"例）タナカタロウ" %>
+          <%= f.text_field :kana_name, class:"new_form_input", autofocus: true, placeholder:"例）タナカタロウ" %>
           <div><span class="announce">※全角カタカナのみ使用可能です。</span></div>
         </div>
 
         <div class="field">
           <div class="colmun">
-            <div><span class="must">必須</span></div>
+            <div><span class="optional">任意</span></div>
             <%= f.label :email, "メールアドレス" %>
           </div>
           <%= f.email_field :email, class:"new_form_input", autofocus: true, placeholder:"tanaka.taro@sample.com" %>
@@ -91,7 +83,25 @@
           </div>
           <%= f.text_field :building, class:"new_form_input", autofocus: true, placeholder:"例）フレーム神南坂４階" %>
         </div>
-        <% if @matter.id == nil %>
+
+        <div class="field">
+          <div class="colmun">
+            <div><span class="optional">任意</span></div>
+            <%= f.label :hobby, "趣味" %>
+          </div>
+          <%= f.text_field :hobby, class:"new_form_input", autofocus: true, placeholder:"例）スノボ、ゴルフなど" %>
+        </div>
+
+        <div class="field">
+          <div class="colmun">
+            <div><span class="optional">任意</span></div>
+            <%= f.label :memo, "メモ" %>
+          </div>
+          <%= f.text_field :memo, class:"new_form_input", autofocus: true, placeholder:"例）基本的に携帯へ連絡する" %>
+        </div>
+
+
+        <% if @customer.id == nil %>
           <%= f.submit "作成する", class:"new_matter_btn"%>
         <% else %>
           <%= f.submit "変更する", class:"new_matter_btn"%>
