@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to matter_path(@customer.id)
+      redirect_to customer_path(@customer.id)
     else
       render :edit
     end
