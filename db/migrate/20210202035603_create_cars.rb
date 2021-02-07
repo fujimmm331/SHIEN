@@ -7,7 +7,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.integer :class_number
       t.string :registration_type
       t.string :registration_number
-      t.integer :vhicle_inspection_day
+      t.integer :vehicle_inspection_day
       t.integer :registered_year
       t.references :customer
       t.timestamps
@@ -22,5 +22,5 @@ end
 # class_number          => 分類番号（例 500 301）
 # registration_type     => 登録種別（ひらがなのところ）
 # registration_number   => 登録番号（4桁以内の数字）
-# vhicle_inspection_day => 車検満了日
+# vehicle_inspection_day => 車検満了日
 # registered_year       => 初度登録
