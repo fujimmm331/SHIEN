@@ -20,6 +20,16 @@ ja:
       memo: セールスメモ
       user: ユーザー
       team: 所属
+    car:
+      name: 車種
+      vehicle_number: 車体番号
+      transport_bureau: 運輸局
+      class_number: 分類番号
+      registration_type: 登録種別
+      registration_number: 登録番号
+      vehicle_inspection_day: 車検満了日
+      registered_year: 初度登録日
+
     contact_log:
       comment: コンタクトログ
       status: ステータス
