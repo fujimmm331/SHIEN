@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
     respond_to do |f|
       f.html
       f.csv do
-        csv_data = Customer.download_matters_csv(@matters)
+        csv_data = Customer.download_customers_csv(@customers)
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
     respond_to do |f|
       f.html
       f.csv do
-        csv_data = Customer.download_matter_csv(@customer)
+        csv_data = Customer.download_customer_csv(@customer)
         send_data(csv_data, filename: "#{@customer.name}(#{Date.today}).csv")
       end
     end
@@ -66,16 +66,16 @@ class CustomersController < ApplicationController
   end
 
   def search
-    #@mattersに検索結果を代入
+    #@customersに検索結果を代入
     @customers = Customer.search(search_params).order(id: "DESC")
-    #/@mattersに検索結果を代入
+    #/@customersに検索結果を代入
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
       f.html do
-        redirect_to matter_path(@customers[0]["id"]) if @customers.count == 1
+        redirect_to customer_path(@customers[0]["id"]) if @customers.count == 1
       end
       f.csv do
-        csv_data = Matter.download_matters_csv(@customers)
+        csv_data = Customer.download_customers_csv(@customers)
         send_data(csv_data, filename: "#{Date.today}.csv")
       end
     end
@@ -95,9 +95,9 @@ class CustomersController < ApplicationController
       f.csv do
         # カラム指定の有無により、メソッドをわける
         csv_data = if params[:colmun].present?
-                     Customer.download_matters_csv_with_colmuns(@customers, params[:colmun])
+                     Customer.download_customers_csv_with_colmuns(@customers, params[:colmun])
                    else
-                     Customer.download_matters_csv(@customers)
+                     Customer.download_customers_csv(@customers)
                    end
         # /カラム指定の有無により、メソッドを分ける
 
