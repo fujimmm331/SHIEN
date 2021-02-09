@@ -23,9 +23,8 @@
         <% if @customers.present?%>
           <tr class="table_title">
             <th><span class="clear_btn" id="clear_btn">チェックを外す</span></th>
-            <th>案件ID</th>
-            <th>案件名</th>
-            <th>先方の担当者</th>
+            <th>お客様ID</th>
+            <th>お客様名</th>
             <th>電話番号</th>
             <th>携帯電話番号</th>
             <th>担当</th>
@@ -35,16 +34,15 @@
           <tr class="table_records">
             <td><%= f.check_box "id[]",{class:"checkbox",checked: true},customer.id, false%></td>
             <td><%= customer.id%></td>
-            <td><%= link_to customer.name,customer_path(customer.id) , class:"table_record"%></td>
-            <td><%= customer.kana_name%> 様</td>
+            <td><%= link_to customer.kana_name,customer_path(customer.id) , class:"table_record"%></td>
             <td><%= customer.phone_number%></td>
             <td><%= customer.cell_phone_number%></td>
             <td><%= customer.user.name%></td>
           </tr>
           <% end %>
         <% else %>
-          <p class="search_announce">案件はありません</p>
-          <p class="search_announce">検索条件をもう一度ご確認ください。
+          <p class="search_announce">該当のデータはありません</p>
+          <p class="search_announce">検索条件をもう一度ご確認ください。</p>
         <% end %>
       </table>
       <%end%>

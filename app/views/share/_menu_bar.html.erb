@@ -5,7 +5,7 @@
   <%else%>
     <%= link_to "通知(#{@notifications_false})", notifications_path, class:["team_menu", "noti_int"]%>
   <%end%>
-  <%= link_to "案件を検索", customers_path, class:"team_menu"%>
+  <%= link_to "お客様を検索", customers_path, class:"team_menu"%>
   <%= link_to "新規案件作成", new_customer_path, class:"team_menu"%>
   <h5 class="menu_title"><span class="menu_title_str">管理者Menu</span></h5>
   <%= link_to "チーム作成", new_team_path, class:"team_menu"%>  <%# 後に権限持っている人のみ、作成できる様にする %>

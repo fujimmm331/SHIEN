@@ -16,22 +16,22 @@ class Customer < ApplicationRecord
   def self.search(params)
 
     phone_num = params[:phone_num] #電話番号
-    sales_person = params[:name] #お客様名
+    customer_name = params[:name] #お客様名
     customer_id = params[:id] #案件ID
 
     case
     
     #電話番号、ID、お客様名に値がある or 電話番号、お客様名に値がある
-    when ((phone_num.present?) && (customer_id.present?) && (sales_person.present?)) || (phone_num.present? && sales_person.present?)
-      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ? ","%#{phone_num}%","%#{phone_num}%").where("kana_sales_person LIKE ?","%#{sales_person}%").includes(:user)
+    when ((phone_num.present?) && (customer_id.present?) && (customer_name.present?)) || (phone_num.present? && customer_name.present?)
+      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ? ","%#{phone_num}%","%#{phone_num}%").where("kana_name LIKE ?","%#{customer_name}%").includes(:user)
 
     #電話番号に値がある or 電話番号、IDに値がある
     when (phone_num.present?) || (phone_num.present? && customer_id.present?)
       Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ?","%#{phone_num}%","%#{phone_num}%").includes(:user)
     
     #お客様名に値がある or お客様名、IDに値がある
-    when (sales_person.present?) || (sales_person.present? && (customer_id.present?))
-      Customer.where('kana_sales_person LIKE (?)', "%#{sales_person}%").includes(:user)
+    when (customer_name.present?) || (customer_name.present? && (customer_id.present?))
+      Customer.where('kana_name LIKE (?)', "%#{customer_name}%").includes(:user)
 
     #IDに値がある
     when customer_id.present?
