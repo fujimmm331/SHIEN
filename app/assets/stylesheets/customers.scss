@@ -200,7 +200,7 @@ margin-top: 5px;
   font-size: 20px;
 }
 
-.checkbox{
+.checkbox_for_record,.checkbox_for_columns{
   width: 20px;
   height: 20px;
   display: block;
@@ -208,7 +208,7 @@ margin-top: 5px;
   
 }
 
-.clear_btn{
+.clear_btn_for_records,.clear_btn_for_columns{
   font-size: 15px;
   background-color: #00cc33;
   text-align: center;
@@ -222,6 +222,10 @@ margin-top: 5px;
   margin-right: auto;
 }
 
+.clear_btn_for_columns{
+  margin-top: 15px;
+}
+
 .chosed_csv_export_btn{
   width: fit-content;
   display: none;
@@ -231,7 +235,7 @@ margin-top: 5px;
   width: fit-content;
   display: flex;
   margin-right: 20px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .select_columns{
@@ -240,5 +244,7 @@ margin-top: 5px;
 }
 
 .select_columns_area{
-  margin-top: 20px;
+  margin: 20px 0px;
+  border: 1px solid silver;
+  padding: 20px;
 }

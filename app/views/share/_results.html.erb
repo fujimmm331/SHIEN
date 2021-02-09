@@ -1,18 +1,22 @@
     <%= form_with(url:chosed_csv_export_customers_path(format: :csv), method: :get, local: true) do |f|%>
     <div class="select_columns_area">
-      <div>出力するデータを指定する</div>
+      <h4>出力するデータを指定する</h4>
+      <div class="select_column"><span class="clear_btn_for_columns" id="clear_btn_for_columns_false">すべてチェックを外す</span></div>
+      <div class="select_column"><span class="clear_btn_for_columns" id="clear_btn_for_columns_true" style="display:none;">すべてチェックをつける</span></div>
       <div class="select_columns">
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"id", false%>案件ID</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"name", false%>案件名</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"sales_person", false%>先方の担当者</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"kana_sales_person", false%>先方の担当者(フリガナ)</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"email", false%>メールアドレス</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"phone_number", false%>電話番号</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"cell_phone_number", false%>携帯電話番号</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"postal_code", false%>郵便番号</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"municipality", false%>市区町村</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"address", false%>番地</div>
-        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox",checked: true},"building", false%>建物名</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"id", false%>お客様ID</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"name", false%>お客様名</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"kana_name", false%>お客様名（フリガナ）</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"email", false%>メールアドレス</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"phone_number", false%>電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"cell_phone_number", false%>携帯電話番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"postal_code", false%>郵便番号</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"municipality", false%>市区町村</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"address", false%>番地</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"building", false%>建物名</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"hobby", false%>趣味</div>
+        <div class="select_column"><%= f.check_box "colmun[]",{class:"checkbox_for_columns",checked: true},"memo", false%>セールスメモ</div>
+
       </div>
     </div>
     <%if @customers.present?%>
@@ -22,8 +26,7 @@
      <table class="matter_table_record">
         <% if @customers.present?%>
           <tr class="table_title">
-            <th><span class="clear_btn" id="clear_btn">チェックを外す</span></th>
-            <th>お客様ID</th>
+            <th><span class="clear_btn_for_records" id="clear_btn_for_records_false">すべてチェックを外す</span><span class="clear_btn_for_records" id="clear_btn_for_records_true" style="display:none;">すべてチェックをつける</span></th>
             <th>お客様名</th>
             <th>電話番号</th>
             <th>携帯電話番号</th>
@@ -32,8 +35,7 @@
           <% @customers.each do |customer| %>
           
           <tr class="table_records">
-            <td><%= f.check_box "id[]",{class:"checkbox",checked: true},customer.id, false%></td>
-            <td><%= customer.id%></td>
+            <td><%= f.check_box "id[]",{class:"checkbox_for_record",checked: true},customer.id, false%></td>
             <td><%= link_to customer.kana_name,customer_path(customer.id) , class:"table_record"%></td>
             <td><%= customer.phone_number%></td>
             <td><%= customer.cell_phone_number%></td>
