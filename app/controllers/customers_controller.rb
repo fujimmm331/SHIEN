@@ -36,7 +36,7 @@ class CustomersController < ApplicationController
 
   def show
     @contact_log = ContactLog.new
-    @logs = @customer.contact_logs.order(created_at: :desc).limit(4)
+    @logs = @customer.contact_logs.includes(:user).order(created_at: :desc).limit(4)
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
