@@ -20,7 +20,7 @@
       </div>
     </div>
     <%if @customers.present?%>
-      <%= link_to "csv出力", search_customers_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
+      <%# <%= link_to "csv出力", search_customers_path(format: :csv, phone_num:params[:phone_num], name:params[:name],id:params[:id]), class:["matter_edit_btn","matter_contactlog_btn","matter_csv_right"],id:"search_csv_export_btn" %>
       <%= f.submit "選択したデータをcsv出力", class:"chosed_csv_export_btn",id:"chosed_csv_export_btn", data: { disable_with: false } %>
     <%end%>
      <table class="matter_table_record">
