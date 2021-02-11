@@ -41,6 +41,9 @@
         </div>
         <div class="matter_btn_area">
           <%= link_to "csv出力", customer_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn"] %>
+          <% if @customer.user.id == current_user.id%>
+            <%= link_to "車両を追加する", new_car_path, class:"matter_edit_btn" %>
+          <%end%>
         </div>
       </div>
       <%# /案件詳細を表示 %>

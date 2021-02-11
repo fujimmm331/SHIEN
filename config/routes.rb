@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'chosed_csv_export'
     end
   end
-  resources :car, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :cars, only: [:new, :create, :show, :edit, :update, :destroy]
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
