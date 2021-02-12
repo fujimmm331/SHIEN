@@ -1,11 +1,10 @@
-class CarsController < ApplicationController
+class CarsController < AuthenticateController
   def new
     @car = Car.new
   end
 
   def create
     @car = Car.new(car_params)
-    binding.pry
     if @car.valid?
       @car.save
       redirect_to root_path

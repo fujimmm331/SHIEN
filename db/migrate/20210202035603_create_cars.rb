@@ -1,15 +1,15 @@
 class CreateCars < ActiveRecord::Migration[6.0]
   def change
     create_table :cars do |t|
-      t.string :name
-      t.string :vehicle_number
-      t.string :transport_bureau
-      t.integer :class_number
-      t.string :registration_type
-      t.string :registration_number
-      t.integer :vehicle_inspection_day
-      t.integer :registered_year
-      t.references :customer
+      t.string :name,                    null: false
+      t.string :vehicle_number,          null: false
+      t.string :transport_bureau,        null: false
+      t.integer :class_number,           null: false
+      t.string :registration_type,       null: false
+      t.string :registration_number,     null: false
+      t.integer :vehicle_inspection_day, null: false
+      t.integer :registered_year,        null: false
+      t.references :customer,            foreign_key: true
       t.timestamps
     end
   end

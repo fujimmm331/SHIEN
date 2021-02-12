@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :sign_in_check, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index   
     @notifications = @notifications.limit(3) if user_signed_in?
@@ -22,11 +22,5 @@ class TeamsController < ApplicationController
   private
   def team_params
     params.require(:team).permit(:name)
-  end
-
-  def sign_in_check
-    unless user_signed_in?
-      redirect_to root_path
-    end
   end
 end

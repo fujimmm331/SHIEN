@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 2021_02_02_035603) do
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.string "vehicle_number"
-    t.string "transport_bureau"
-    t.integer "class_number"
-    t.string "registration_type"
-    t.string "registration_number"
-    t.integer "vehicle_inspection_day"
-    t.integer "registered_year"
+    t.string "name", null: false
+    t.string "vehicle_number", null: false
+    t.string "transport_bureau", null: false
+    t.integer "class_number", null: false
+    t.string "registration_type", null: false
+    t.string "registration_number", null: false
+    t.integer "vehicle_inspection_day", null: false
+    t.integer "registered_year", null: false
     t.bigint "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_035603) do
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "cars", "customers"
   add_foreign_key "contact_logs", "customers"
   add_foreign_key "contact_logs", "teams"
   add_foreign_key "contact_logs", "users"

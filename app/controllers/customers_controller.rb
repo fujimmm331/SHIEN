@@ -1,8 +1,7 @@
 require 'csv'
 require 'date'
 
-class CustomersController < ApplicationController
-  before_action :authenticate_user!
+class CustomersController < AuthenticateController
   before_action :find_customer, only: [:show, :edit, :update, :destroy]
   before_action :user_check, only: [:edit, :update, :destroy]
   
