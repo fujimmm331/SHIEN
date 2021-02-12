@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   resources :teams, only: [:index, :new, :create]
   resources :customers do
     resources :contact_logs, only: [:index,:create]
+    resources :cars, only: [:new, :create, :show, :edit, :update, :destroy]
     collection do
       get 'search'
       get 'chosed_csv_export'
     end
   end
-  resources :cars, only: [:new, :create, :show, :edit, :update, :destroy]
+  # resources :cars, only: [:new, :create, :show, :edit, :update, :destroy]
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'

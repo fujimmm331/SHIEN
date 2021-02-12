@@ -1,8 +1,7 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side">
-    <%= form_with model:@car, class:["matter_new_edit_forms","h-adr"], local: true do |f|%>
-    <%= f.hidden_field :customer_id, value: params[:customer_id] %>
+    <%= form_with model:[@customer, @car], class:["matter_new_edit_forms","h-adr"], local: true do |f|%>
     <span class="p-country-name" style="display:none;">Japan</span>
     <div class="matter_new_edit_form_side">
       <h1 class="new_matter"><span class="title">新規車両作成</span></h1>
