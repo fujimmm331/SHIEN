@@ -13,6 +13,11 @@ RSpec.describe Car, type: :model do
     end
 
     context '失敗する時' do
+      it '車種が空欄では保存できない' do
+        @car.name = ""
+        @car.valid?
+        expect(@car.errors.full_messages).to include "車種を入力してください"
+      end
       it '車体番号が大文字の英数字だと保存できない' do
         @car.vehicle_number = "ｇｔ０００００１"
         @car.valid?

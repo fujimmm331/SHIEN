@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :customer
-
+  validates :name, presence: true
   validates :vehicle_number, format:{ with:/\A[a-zA-Z0-9]+\z/, message: "は半角英数字のみ使用できます"}
   validates :transport_bureau, :registration_number, length: { maximum: 4, message: "は4文字以内で入力してください"}
   validates :transport_bureau, format: { with:/\A[一-龥ぁ-ん]/, message:"はひらがな・漢字のみ使用できます"}
