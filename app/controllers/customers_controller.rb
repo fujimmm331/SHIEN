@@ -34,6 +34,7 @@ class CustomersController < AuthenticateController
   end
 
   def show
+    @cars = @customer.car
     @contact_log = ContactLog.new
     @logs = @customer.contact_logs.includes(:user).order(created_at: :desc).limit(4)
 

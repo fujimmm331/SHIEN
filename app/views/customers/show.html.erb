@@ -5,32 +5,75 @@
       <%# 案件詳細を表示 %>
       <div class="matter_info">
         <h2 class="new_matter"><span class="title">顧客情報</span></h2>
-
         <div class="field">
-          <div class="matter_title">お客様名：</div>
-          <span class="matter_text"><%= @customer.name%> / <%= @customer.kana_name%> 様</span>
+          <div class="staff">
+            <div class="staff_title">担当者：</div>
+            <div><%= @customer.user.team.name%></div>
+            <div><%= @customer.user.name%></div>
+          </div>
         </div>
 
-        <div class="field">
-          <div class="matter_title">電話番号：</div>
-          <span class="matter_text"><%= @customer.phone_number%></span>
-          <div class="matter_title">携帯電話：</div>
-          <span class="matter_text"><%= @customer.cell_phone_number%></span>
-          <div class="matter_title">email：</div>
-          <span class="matter_text"><%= @customer.email%></span>
+        <h4 class="customer_infos"><span class="title">基本情報</span></h4>
+        <div class="field_with_intend">
+          <div class="customer_info">
+            <div class="matter_title">お客様名：</div>
+            <span class="matter_text"><%= @customer.name%> / <%= @customer.kana_name%> 様</span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">電話番号：</div>
+            <span class="matter_text"><%= @customer.phone_number%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">携帯電話：</div>
+            <span class="matter_text"><%= @customer.cell_phone_number%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">email：</div>
+            <span class="matter_text"><%= @customer.email%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">住所：</div>
+            <span class="matter_text"><%= @customer.postal_code%></span>
+            <div><span class="matter_text"><%= @customer.municipality%><%= @customer.address%><%= @customer.building%></span></div>
+          </div>
         </div>
 
-        <div class="field">
-          <div class="matter_title">住所：</div>
-          <span class="matter_text"><%= @customer.postal_code%></span>
-          <div><span class="matter_text"><%= @customer.municipality%><%= @customer.address%><%= @customer.building%></span></div>
-        </div>
+        <% if @cars.present?%>
+        <h4 class="customer_infos"><span class="title">車両情報</span></h4>
+        <% @cars.each_with_index do |car, i|%>
+        <h5>車両<%= i + 1%></h5>
+        <div class="field_with_intend">
+          <div class="customer_info">
+            <div class="matter_title">車両名：</div>
+            <span class="matter_text"><%= car.name%></span>
+          </div>
 
-        <div class="field">
-          <div>担当者：</div>
-          <%= @customer.user.team.name%><br>
-          <%= @customer.user.name%>
+          <div class="customer_info">
+            <div class="matter_title">登録番号：</div>
+            <span class="matter_text"><%= car.transport_bureau%><%= car.class_number%><%= car.registration_type%><%= car.registration_number%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">車両番号：</div>
+            <span class="matter_text"><%= car.vehicle_number%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">車検満了日：</div>
+            <span class="matter_text"><%= car.vehicle_inspection_day%></span>
+          </div>
+
+          <div class="customer_info">
+            <div class="matter_title">初度登録日：</div>
+            <span class="matter_text"><%= car.registered_year%></span>
+          </div>
         </div>
+        <%end%>
+        <%end%>
 
         <div class="matter_btn_area">
           <%= link_to "コンタクトログ一覧", customer_contact_logs_path(@customer.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>

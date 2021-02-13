@@ -27,8 +27,20 @@
   border-radius: 20px;
 }
 
-.field{
+.field,.field_with_intend{
   margin-bottom: 30px;
+}
+
+.field_with_intend{
+  margin-left: 30px;
+}
+
+.staff{
+  width: fit-content;
+  margin: 0 0 0 auto;
+}
+.staff_title{
+  text-align: left;
 }
 
 .colmun{
