@@ -17,29 +17,29 @@ class Customer < ApplicationRecord
 
     phone_num = params[:phone_num] #電話番号
     customer_name = params[:name] #お客様名
-    customer_id = params[:id] #案件ID
+    registration_number = params[:registration_number] #登録番号
 
     case
     
     #電話番号、ID、お客様名に値がある or 電話番号、お客様名に値がある
-    when ((phone_num.present?) && (customer_id.present?) && (customer_name.present?)) || (phone_num.present? && customer_name.present?)
-      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ? ","%#{phone_num}%","%#{phone_num}%").where("kana_name LIKE ?","%#{customer_name}%").includes(:user)
+    when ((phone_num.present?) && (registration_number.present?) && (customer_name.present?)) || (phone_num.present? && customer_name.present?)
+      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ? ","%#{phone_num}%","%#{phone_num}%").where("kana_name LIKE ?","%#{customer_name}%").includes(:user,:car)
 
     #電話番号に値がある or 電話番号、IDに値がある
-    when (phone_num.present?) || (phone_num.present? && customer_id.present?)
-      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ?","%#{phone_num}%","%#{phone_num}%").includes(:user)
+    when (phone_num.present?) || (phone_num.present? && registration_number.present?)
+      Customer.where("phone_number LIKE ? OR cell_phone_number LIKE ?","%#{phone_num}%","%#{phone_num}%").includes(:user,:car)
     
     #お客様名に値がある or お客様名、IDに値がある
-    when (customer_name.present?) || (customer_name.present? && (customer_id.present?))
-      Customer.where('kana_name LIKE (?)', "%#{customer_name}%").includes(:user)
+    when (customer_name.present?) || (customer_name.present? && (registration_number.present?))
+      Customer.where('kana_name LIKE (?)', "%#{customer_name}%").includes(:user,:car)
 
-    #IDに値がある
-    when customer_id.present?
-      Customer.where(id: customer_id)
+    #登録番号に値がある
+    when registration_number.present?
+      Customer.joins(:car).includes(:user,:car).where(cars:{registration_number:registration_number})
 
     #全て空の時
     else
-      Customer.includes(:user)
+      Customer.includes(:user,:car)
     end
   end
 

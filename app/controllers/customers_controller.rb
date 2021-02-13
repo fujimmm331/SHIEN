@@ -112,7 +112,7 @@ class CustomersController < AuthenticateController
   end
 
   def search_params
-    params.permit(:phone_num, :id, :name) 
+    params.permit(:phone_num, :registration_number, :name) 
   end
 
 

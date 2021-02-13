@@ -28,15 +28,34 @@
           <tr class="table_title">
             <th><span class="clear_btn_for_records" id="clear_btn_for_records_false">すべてチェックを外す</span><span class="clear_btn_for_records" id="clear_btn_for_records_true" style="display:none;">すべてチェックをつける</span></th>
             <th>お客様名</th>
+            <th>車両</th>
+            <th>登録番号</th>
             <th>電話番号</th>
             <th>携帯電話番号</th>
             <th>担当</th>
           </tr>
           <% @customers.each do |customer| %>
-          
           <tr class="table_records">
             <td><%= f.check_box "id[]",{class:"checkbox_for_record",checked: true},customer.id, false%></td>
             <td><%= link_to customer.kana_name,customer_path(customer.id) , class:"table_record"%></td>
+            
+            <%if customer.car.present?%>
+            <td>
+              <% customer.car.each do |car|%>
+                <div><%=car.name%></div>
+              <%end%>
+            </td>
+            <td>
+              <% customer.car.each do |car|%>
+                <div><%=car.transport_bureau%><%=car.class_number%><%=car.registration_type%><%=car.registration_number%></div>
+              <%end%>
+            </td>
+            <%else%>
+              <td></td>
+              <td></td>
+            <%end%>
+            
+
             <td><%= customer.phone_number%></td>
             <td><%= customer.cell_phone_number%></td>
             <td><%= customer.user.name%></td>
