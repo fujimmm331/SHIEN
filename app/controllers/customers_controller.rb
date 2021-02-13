@@ -6,7 +6,7 @@ class CustomersController < AuthenticateController
   before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
-    @customers = Customer.includes(:user).order(id: "DESC")
+    @customers = Customer.includes(:user,:car).order(id: "DESC")
 
     #htmlを返すか、csvを返すかの処理
     respond_to do |f|
