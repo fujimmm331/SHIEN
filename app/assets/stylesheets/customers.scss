@@ -1,5 +1,8 @@
-.matter_contents, .matter_btn_area, .matter_area,.contact_logs,.matter_title_area{
+.matter_contents, .matter_btn_area, .matter_area,.contact_logs,.matter_title_area,.customer_info_title{
   display: flex;  
+}
+.customer_info_title{
+  justify-content: space-between;
 }
 
 .matter_contents{
@@ -129,7 +132,7 @@
 
 .new_matter_btn{
   display: block;
-  height: 40px;
+  height: fit-content;
   width: 95%;
   font-size: 16px;
   background-color:#ff9933;

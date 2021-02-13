@@ -13,7 +13,12 @@
           </div>
         </div>
 
-        <h4 class="customer_infos"><span class="title">基本情報</span></h4>
+        <div class="customer_info_title">
+          <h4 class="customer_infos"><span class="title">基本情報</span></h4>
+          <% if @customer.user.id == current_user.id%>
+            <div><%= link_to "編集する", edit_customer_path(@customer.id), class:"matter_edit_btn" %></div>
+          <% end %>
+        </div>
         <div class="field_with_intend">
           <div class="customer_info">
             <div class="matter_title">お客様名：</div>
@@ -44,8 +49,14 @@
 
         <% if @cars.present?%>
         <h4 class="customer_infos"><span class="title">車両情報</span></h4>
+        
         <% @cars.each_with_index do |car, i|%>
-        <h5>車両<%= i + 1%></h5>
+        <div class="customer_info_title">
+          <h5>車両<%= i + 1%></h5>
+          <% if @customer.user.id == current_user.id%>
+            <div><%= link_to "編集する", edit_customer_car_path(@customer.id, car.id), class:"matter_edit_btn" %></div>
+          <% end %>
+        </div>
         <div class="field_with_intend">
           <div class="customer_info">
             <div class="matter_title">車両名：</div>
@@ -77,15 +88,14 @@
 
         <div class="matter_btn_area">
           <%= link_to "コンタクトログ一覧", customer_contact_logs_path(@customer.id) , class:["matter_edit_btn","matter_contactlog_btn"] %>
-          <% if @customer.user.id == current_user.id%>
-            <%= link_to "編集する", edit_customer_path(@customer.id), class:"matter_edit_btn" %>
-            <%= link_to "削除する", customer_path(@customer.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %>
-          <%end%>
-        </div>
-        <div class="matter_btn_area">
           <%= link_to "csv出力", customer_path(format: :csv), class:["matter_edit_btn","matter_contactlog_btn"] %>
           <% if @customer.user.id == current_user.id%>
             <%= link_to "車両を追加する", new_customer_car_path(@customer.id), class:"matter_edit_btn" %>
+          <%end%>
+        </div>
+        <div class="matter_btn_area">
+          <% if @customer.user.id == current_user.id%>
+            <%= link_to "削除する", customer_path(@customer.id), class:["matter_edit_btn","matter_destroy_btn"], method: :delete, data:{ confirm: '本当に削除して良いですか?', cancel: 'やめる', commit: '削除する'}, title: '削除確認' %>
           <%end%>
         </div>
       </div>
