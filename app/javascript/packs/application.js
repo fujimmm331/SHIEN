@@ -9,7 +9,7 @@ require("channels")
 require('data-confirm-modal')
 require("../checked")
 require("../allClear")
-require("../exportCsvLink")
+// require("../exportCsvLink")
 import 'bootstrap'
 import '../src/application.scss'
 

@@ -1,0 +1,31 @@
+.registration_num_upper,.registration_num_lower{
+  display: flex;
+}
+
+.registration_num_upper{
+  margin-bottom: 5px;
+}
+
+.transport_bureau{
+  width: 100px;
+  margin-right:10px ;
+  text-align: center;
+}
+
+.class_number{
+  width: 60px;
+  text-align: center;
+}
+
+.registration_type{
+  width: 30px;
+  height: 50px;
+  margin-right:10px ;
+  text-align: center;
+}
+
+.registration_number{
+  width: 130px;
+  height: 50px;
+  text-align: center;
+}

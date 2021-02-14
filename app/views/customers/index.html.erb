@@ -1,11 +1,10 @@
 <div class="matter_contents">
   <%= render 'share/menu_bar.html.erb'%>
   <div class="matter_side_index">
-    <%= render 'share/search_matter'%>
+    <%= render 'share/search_matter.html.erb'%>
     <div class="matter_main_contents">
 
-      <h1><span class="title">検索結果：<%= @matters.count%>件</span></h1>
-
+      <h1><span class="title">顧客一覧</span></h1>
       <%= render 'share/results'%>
     </div>
   </div>

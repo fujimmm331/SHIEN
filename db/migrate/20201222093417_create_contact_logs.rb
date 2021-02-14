@@ -5,7 +5,7 @@ class CreateContactLogs < ActiveRecord::Migration[6.0]
       t.text :comment,      null: false
       t.references :user,   foreign_key: true
       t.references :team,   foreign_key: true
-      t.references :matter, foreign_key: true
+      t.references :customer, foreign_key: true
       t.timestamps
     end
   end

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :matters
+  has_many :customers
   has_many :contact_logs
 
   #カラムの名前が異なるため、明示的に設定

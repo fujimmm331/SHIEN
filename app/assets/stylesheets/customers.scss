@@ -1,5 +1,8 @@
-.matter_contents, .matter_btn_area, .matter_area,.contact_logs,.matter_title_area{
+.matter_contents, .matter_btn_area, .matter_area,.contact_logs,.matter_title_area,.customer_info_title{
   display: flex;  
+}
+.customer_info_title{
+  justify-content: space-between;
 }
 
 .matter_contents{
@@ -129,7 +132,7 @@
 
 .new_matter_btn{
   display: block;
-  height: 40px;
+  height: fit-content;
   width: 95%;
   font-size: 16px;
   background-color:#ff9933;
@@ -200,7 +203,7 @@ margin-top: 5px;
   font-size: 20px;
 }
 
-.checkbox{
+.checkbox_for_record,.checkbox_for_columns{
   width: 20px;
   height: 20px;
   display: block;
@@ -208,7 +211,7 @@ margin-top: 5px;
   
 }
 
-.clear_btn{
+.clear_btn_for_records,.clear_btn_for_columns{
   font-size: 15px;
   background-color: #00cc33;
   text-align: center;
@@ -222,16 +225,19 @@ margin-top: 5px;
   margin-right: auto;
 }
 
+.clear_btn_for_columns{
+  margin-top: 15px;
+}
+
 .chosed_csv_export_btn{
   width: fit-content;
-  display: none;
 }
 
 .select_column{
   width: fit-content;
   display: flex;
   margin-right: 20px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .select_columns{
@@ -240,5 +246,15 @@ margin-top: 5px;
 }
 
 .select_columns_area{
-  margin-top: 20px;
+  margin: 20px 0px;
+  border: 1px solid silver;
+  padding: 20px;
+}
+
+.customer_infos{
+  margin-bottom: 15px;
+}
+
+.customer_info{
+  margin-bottom: 10px;
 }

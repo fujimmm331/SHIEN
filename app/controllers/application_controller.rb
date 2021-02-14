@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_notifications
+  
 
   private
   def configure_permitted_parameters
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def get_notifications
     if user_signed_in?
-      @notifications = Notification.where(visited_id: current_user.id).where.not(visiter_id: current_user.id).order(created_at: :desc)
+      @notifications = Notification.includes(:customer, contact_log:[:customer,:user]).where(visited_id: current_user.id).order(created_at: :desc)
       @notifications_false = @notifications.where(checked:false).count
     end
   end

@@ -6,19 +6,30 @@ ja:
       team: 所属
     team:
       name: チーム名
-    matter:
-      name: 案件名
-      sales_person: 先方の担当者
-      kana_sales_person: フリガナ
+    customer:
+      name: お客様名
+      kana_name: お客様名（フリガナ）
       email: メールアドレス
       phone_number: 電話番号
       cell_phone_number: 携帯電話番号
       postal_code: 郵便番号
-      municipality: 市区町村
+      municipality: 住所
       address: 番地
       building: 建物名
+      hobby: 趣味
+      memo: セールスメモ
       user: ユーザー
       team: 所属
+    car:
+      name: 車種
+      vehicle_number: 車体番号
+      transport_bureau: 運輸局
+      class_number: 分類番号
+      registration_type: 登録種別
+      registration_number: 登録番号
+      vehicle_inspection_day: 車検満了日
+      registered_year: 初度登録日
+
     contact_log:
       comment: コンタクトログ
       status: ステータス
