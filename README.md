@@ -33,6 +33,9 @@ https://github.com/nyappy15ch/SHIEN
 ### DB
 - MySQL
 
+[SHIEN_ER図.pdf](https://github.com/nyappy15ch/SHIEN/files/6002538/SHIEN_ER.pdf)
+
+
 ### インフラ
 - AWS(EC2,Route53)
 - Capistrano
