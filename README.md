@@ -33,7 +33,8 @@ https://github.com/nyappy15ch/SHIEN
 ### DB
 - MySQL
 
-[SHIEN_ER図.pdf](https://github.com/nyappy15ch/SHIEN/files/6002538/SHIEN_ER.pdf)
+![SHIEN_ER図](https://user-images.githubusercontent.com/69615045/108353531-9beb9580-722b-11eb-9be7-164b04f1cd3d.jpg)
+
 
 
 ### インフラ
