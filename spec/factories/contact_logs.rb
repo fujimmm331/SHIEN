@@ -4,6 +4,6 @@ FactoryBot.define do
     comment {"テスト"}
     association :user
     association :team
-    association :matter
+    association :customer
   end
 end
