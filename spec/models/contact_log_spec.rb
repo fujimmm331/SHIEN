@@ -37,9 +37,9 @@ RSpec.describe ContactLog, type: :model do
       end
 
       it '案件の外部キーが空だと保存できない' do
-        @contact_log.matter = nil
+        @contact_log.customer = nil
         @contact_log.valid?
-        expect(@contact_log.errors.full_messages).to include "Matterを入力してください"
+        expect(@contact_log.errors.full_messages).to include "Customerを入力してください"
       end
     end
   end
